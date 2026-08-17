@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 1010,
+  "id": "101-sunburst",
+  "title": "Flare analytics sunburst",
+  "family": "hierarchy",
+  "intent": "Show Flare analytics class sizes across two visible hierarchy depths using nested annular sectors.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "native sunburst hierarchy mark",
+    "flat path hierarchy",
+    "responsive hierarchical angle and ring allocation",
+    "direct source lineage",
+    "inherited branch color"
+  ],
+  "geometry": [{ "role": "arc", "count": 10, "maxCount": 10 }],
+  "minimumGeometrySimilarity": 0.995,
+  "source": {
+    "title": "Recharts Sunburst Chart Example",
+    "url": "https://recharts.github.io/en-US/examples/SunburstChartExample/"
+  },
+  "ai": {
+    "create": "Create a two-ring sunburst directly from flat Flare name and size rows with inherited branch colors.",
+    "maintain": "Change the selected Flare rows while preserving raw row lineage, hierarchy order, global angular allocation, responsive rings, stable node identity, and branch color inheritance."
+  }
+}

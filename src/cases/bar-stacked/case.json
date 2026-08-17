@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "order": 80,
+  "id": "bar-stacked",
+  "title": "Stacked bars",
+  "family": "bar",
+  "intent": "Compare monthly Crimean War deaths while preserving disease, wounds, and other causes.",
+  "support": "composed",
+  "features": [
+    "stacked bars",
+    "stack transform",
+    "categorical color inference",
+    "monthly time intervals",
+    "implicit lower and upper bounds"
+  ],
+  "geometry": [
+    {
+      "role": "bar",
+      "count": 69,
+      "maxCount": 72,
+      "rendererRoles": { "observable-plot": "rect", "tanstack": "bar" }
+    },
+    {
+      "role": "rule",
+      "count": 1
+    }
+  ],
+  "source": {
+    "title": "Observable Plot crimean-war-stacked fixture",
+    "url": "https://github.com/observablehq/plot/blob/356f579b1d947ee05a914420eddff0f29cee300a/test/plots/crimean-war-stacked.ts"
+  },
+  "ai": {
+    "create": "Create stacked monthly rectangles directly from the imported Crimean War rows, preserving the source fields and reshaping only the three death causes required by the chart.",
+    "maintain": "Change the visible date range while keeping cause order, monthly boundaries, inferred colors, and the zero baseline correct."
+  }
+}

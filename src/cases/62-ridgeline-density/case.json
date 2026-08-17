@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "order": 620,
+  "id": "62-ridgeline-density",
+  "title": "Ridgeline density comparison",
+  "family": "distribution",
+  "intent": "Compare the distribution of real Simpsons episode IMDb ratings across three seasons in compact vertically offset layers.",
+  "support": "native",
+  "features": [
+    "public grouped binX transform",
+    "public grouped max normalization",
+    "semantic ridgeline mark",
+    "smooth D3 curves",
+    "categorical color"
+  ],
+  "geometry": [
+    { "role": "rule", "count": 3 },
+    { "role": "area", "count": 3 },
+    { "role": "line", "count": 3 }
+  ],
+  "source": {
+    "title": "Observable Plot area ridgeline examples",
+    "url": "https://observablehq.com/plot/marks/area"
+  },
+  "ai": {
+    "create": "Create a three-season ridgeline chart by grouping binX on the Simpsons dataset's imdb_rating field, normalizing each season by its maximum count, and passing the prepared profiles to ridgelineY with a D3 basis curve.",
+    "maintain": "Change the selected seasons while keeping semantic category baselines, grouped bin lineage, normalization, labels, identity, colors, and responsive overlap geometry aligned."
+  }
+}

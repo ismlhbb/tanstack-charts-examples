@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "order": 3,
+  "id": "03-temperature-range-band",
+  "title": "San Francisco temperature range band",
+  "family": "range",
+  "intent": "Show San Francisco's daily low-to-high temperature interval from Plot's pinned fixture using its original date, low, and high fields.",
+  "support": "native",
+  "features": [
+    "area",
+    "range-band",
+    "y1-y2",
+    "boundary-lines",
+    "utc-scale",
+    "fixture:sf-temperature-band-area"
+  ],
+  "geometry": [
+    { "role": "area", "count": 1 },
+    { "role": "line", "count": 2 }
+  ],
+  "source": {
+    "title": "Observable Plot area mark — range bands",
+    "url": "https://observablehq.com/plot/marks/area"
+  },
+  "ai": {
+    "create": "Create a responsive UTC temperature band from the San Francisco fixture's original date, low, and high fields. Fill the interval from low to high and draw distinct boundary lines from the same imported rows.",
+    "maintain": "Add a 32-degree freezing reference rule and make the band react to light and dark themes while preserving the explicit low/high interval, boundary line geometry, and cast-free field inference."
+  }
+}

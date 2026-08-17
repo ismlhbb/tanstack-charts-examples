@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "order": 200,
+  "id": "19-moving-average-line",
+  "title": "San Francisco temperature moving averages",
+  "family": "trend",
+  "intent": "Smooth the daily high and low fields from Plot's San Francisco temperature fixture with trailing fourteen-day means.",
+  "support": "composed",
+  "features": [
+    "line",
+    "moving average",
+    "window transform",
+    "temperature",
+    "two-series",
+    "TanStack window"
+  ],
+  "geometry": [
+    { "role": "line", "count": 2 },
+    { "role": "rule", "count": 1 }
+  ],
+  "source": {
+    "title": "Observable Plot window transform",
+    "url": "https://observablehq.com/plot/transforms/window"
+  },
+  "ai": {
+    "create": "Create responsive trailing fourteen-day averages from the San Francisco fixture's original date, high, and low fields. Keep the imported rows untouched and show the explicit TanStack transform beside the chart.",
+    "maintain": "Change the rolling window and alignment while preserving separate high and low calculations and the same imported observations."
+  }
+}

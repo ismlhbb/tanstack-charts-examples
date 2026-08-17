@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "order": 1030,
+  "id": "103-bubble-map",
+  "title": "World population bubble map",
+  "family": "geography",
+  "intent": "Compare published country populations with area-scaled circles at geographic centroids.",
+  "support": "native",
+  "features": [
+    "World Bank country populations",
+    "world-atlas country centroids",
+    "data-driven point radius",
+    "D3 square-root radius scale",
+    "Equal Earth projection",
+    "layered geographic marks"
+  ],
+  "geometry": [{ "role": "geo", "count": 97, "maxCount": 97 }],
+  "minimumGeometrySimilarity": 0.999,
+  "source": {
+    "title": "Observable Plot proportional-symbol maps",
+    "url": "https://observablehq.com/plot/marks/dot"
+  },
+  "ai": {
+    "create": "Join Observable Plot's learning-poverty snapshot to world-atlas countries, derive geographic centroids, and size symbols by the published population field.",
+    "maintain": "Keep the join and centroid transform visible, preserve source population values, draw larger symbols first, and use the same square-root radius range in both renderers."
+  }
+}

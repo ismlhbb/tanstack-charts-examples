@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "order": 2,
+  "id": "02-multi-line-end-labels",
+  "title": "Industry unemployment with end labels",
+  "family": "trend",
+  "intent": "Compare monthly unemployment in manufacturing, construction, and finance and label each industry's newest dated observation directly, independent of input order.",
+  "support": "composed",
+  "features": [
+    "line",
+    "multi-series",
+    "direct-labels",
+    "grouped-select",
+    "latest-date-selection",
+    "ordinal-color"
+  ],
+  "geometry": [
+    { "role": "line", "count": 3 },
+    { "role": "text", "count": 3 }
+  ],
+  "source": {
+    "title": "Observable Plot select transform — multi-series end labels",
+    "url": "https://observablehq.com/plot/transforms/select"
+  },
+  "ai": {
+    "create": "Create a responsive three-industry UTC line chart from the industries dataset's original date, industry, and unemployed fields. Give each industry a stable color and directly label its newest dated observation without depending on input order or reshaping the observations.",
+    "maintain": "Move the direct labels from the newest dated observation to the oldest dated observation of each industry while retaining industry colors, inferred callback data, and readable label space."
+  }
+}

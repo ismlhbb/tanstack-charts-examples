@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "order": 50,
+  "id": "bar-vertical-sorted",
+  "title": "Sorted vertical bars",
+  "family": "bar",
+  "intent": "Compare English letter frequencies with the most frequent letter first.",
+  "support": "composed",
+  "features": [
+    "vertical bars",
+    "descending categorical domain",
+    "band scale",
+    "zero baseline"
+  ],
+  "geometry": [
+    {
+      "role": "bar",
+      "count": 26
+    }
+  ],
+  "source": {
+    "title": "Observable Plot bar mark",
+    "url": "https://observablehq.com/plot/marks/bar"
+  },
+  "ai": {
+    "create": "Create the Observable letter-frequency bar chart directly from imported alphabet rows, ordered from largest frequency to smallest.",
+    "maintain": "Change bar presentation while preserving the source letter and frequency channels, descending order, zero baseline, and visible labels."
+  }
+}

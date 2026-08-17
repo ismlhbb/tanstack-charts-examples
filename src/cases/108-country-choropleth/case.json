@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "order": 1080,
+  "id": "108-country-choropleth",
+  "title": "World population-density choropleth",
+  "family": "geography",
+  "intent": "Compare published population density across real country boundaries.",
+  "support": "native",
+  "features": [
+    "world-atlas 110m countries",
+    "TopoJSON conversion",
+    "World Bank population density",
+    "country-name join",
+    "95 matched country features",
+    "Equal Earth projection",
+    "responsive projection fitting",
+    "theme-aware country borders"
+  ],
+  "geometry": [{ "role": "geo", "count": 97, "maxCount": 97 }],
+  "minimumGeometrySimilarity": 0.999,
+  "source": {
+    "title": "Observable Plot geo mark",
+    "url": "https://observablehq.com/plot/marks/geo"
+  },
+  "ai": {
+    "create": "Join Observable Plot's learning-poverty snapshot to world-atlas countries and map its published density field through an inferred quantize scale.",
+    "maintain": "Preserve source field names, explicit name aliases, atlas identity, responsive projection fitting, stable country keys, quantized colors, and theme-aware borders."
+  }
+}

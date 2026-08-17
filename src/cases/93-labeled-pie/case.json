@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 930,
+  "id": "93-labeled-pie",
+  "title": "Letter frequency pie with labels",
+  "family": "polar",
+  "intent": "Identify each selected English letter around a frequency pie without relying on a separate legend.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "native pie allocation",
+    "outside radial labels",
+    "leader lines",
+    "post-scale pixel offsets",
+    "automatic outside anchors",
+    "flat source lineage"
+  ],
+  "geometry": [
+    { "role": "arc", "count": 4, "maxCount": 4 },
+    { "role": "rule", "count": 4, "maxCount": 4 },
+    { "role": "text", "count": 4, "maxCount": 4 }
+  ],
+  "minimumGeometrySimilarity": 0.995,
+  "source": {
+    "title": "Recharts Pie Chart With Customized Label",
+    "url": "https://recharts.github.io/en-US/examples/PieChartWithCustomizedLabel/"
+  },
+  "ai": {
+    "create": "Create a four-slice pie from Observable's alphabet rows with stable letter colors, radial leader lines, and one outside letter label per arc.",
+    "maintain": "Change the selected letters while preserving raw letter and frequency fields, source order, arc identity, responsive offsets, side-aware text anchors, and label-to-slice color."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "order": 4,
+  "id": "04-stacked-time-area",
+  "title": "Industry unemployment stacked area",
+  "family": "composition",
+  "intent": "Stack every industry in the unemployment dataset over a shared UTC axis from the original observations.",
+  "support": "composed",
+  "features": [
+    "area",
+    "stack",
+    "multi-series",
+    "native stack layout",
+    "fixture:industry-unemployment"
+  ],
+  "geometry": [
+    { "role": "area", "count": 14 },
+    { "role": "rule", "count": 1 }
+  ],
+  "source": {
+    "title": "Observable Plot stack transform — stacked area",
+    "url": "https://observablehq.com/plot/transforms/stack"
+  },
+  "ai": {
+    "create": "Create a responsive stacked UTC area chart from the industries dataset's original date, industry, and unemployed fields using each library's native stack semantics.",
+    "maintain": "Convert the chart to a normalized 100% stack while keeping both implementations on the same imported industry observations."
+  }
+}

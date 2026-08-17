@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "order": 1,
+  "id": "01-line-gaps",
+  "title": "Apple stock line with seasonal gaps",
+  "family": "trend",
+  "intent": "Render Apple closing prices while exposing first-quarter missing values as visible gaps through the y channel, matching Observable Plot's AAPL example without reshaping the source rows.",
+  "support": "native",
+  "features": [
+    "line",
+    "time-series",
+    "utc-scale",
+    "nullable-channel",
+    "missing-values"
+  ],
+  "geometry": [{ "role": "line", "count": 1 }],
+  "source": {
+    "title": "Observable Plot line mark — missing data",
+    "url": "https://observablehq.com/plot/marks/line"
+  },
+  "ai": {
+    "create": "Create a responsive UTC line chart from the AAPL dataset's original Date and Close fields. Return null from the Close channel during the first quarter of each year so the missing runs remain visible without mapping the source data into chart-shaped rows.",
+    "maintain": "Change which calendar months are treated as missing while keeping the AAPL rows untouched, the accessor explicit, and compact and wide layouts readable."
+  }
+}

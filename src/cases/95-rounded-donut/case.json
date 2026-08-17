@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 950,
+  "id": "95-rounded-donut",
+  "title": "Rounded letter frequency donut",
+  "family": "polar",
+  "intent": "Separate five English letter frequencies with deliberate angular gaps and rounded arc ends.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "native pie allocation",
+    "source lineage",
+    "keyed annular arc sectors",
+    "explicit angular gaps",
+    "rounded arc corners",
+    "responsive annular radii"
+  ],
+  "geometry": [{ "role": "arc", "count": 5, "maxCount": 5 }],
+  "minimumGeometrySimilarity": 0.995,
+  "source": {
+    "title": "Recharts Pie Chart With Padding Angle",
+    "url": "https://recharts.github.io/en-US/examples/PieChartWithPaddingAngle/"
+  },
+  "ai": {
+    "create": "Create a five-slice donut from Observable's alphabet rows using native pie allocation, with three-degree gaps, eight-pixel corners, and stable letter fills.",
+    "maintain": "Change the selected letters while preserving flat source lineage, raw letter and frequency fields, explicit gap size, responsive radii, rounded corners, source order, and semantic arc identity."
+  }
+}

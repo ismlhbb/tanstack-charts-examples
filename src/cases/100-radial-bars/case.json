@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 1000,
+  "id": "100-radial-bars",
+  "title": "Concentric letter frequency bars",
+  "family": "polar",
+  "intent": "Compare four English letter frequencies through concentric rounded radial bars on one shared angular scale.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "native angle-extending radial bars",
+    "categorical radius bands",
+    "responsive radial range",
+    "rounded arc caps",
+    "fixed angular domain"
+  ],
+  "geometry": [{ "role": "arc", "count": 4, "maxCount": 4 }],
+  "minimumGeometrySimilarity": 0.995,
+  "source": {
+    "title": "Recharts Simple Radial Bar Chart",
+    "url": "https://recharts.github.io/en-US/examples/SimpleRadialBarChart/"
+  },
+  "ai": {
+    "create": "Create four concentric radial bars from Observable's alphabet rows using letter and frequency directly against the dataset maximum.",
+    "maintain": "Change the selected letters without changing radius-band order or the shared angular domain; preserve raw field names, responsive radius ranges, semantic keys, and exact per-letter fills."
+  }
+}

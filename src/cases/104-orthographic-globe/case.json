@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "order": 1040,
+  "id": "104-orthographic-globe",
+  "title": "Orthographic globe with graticule",
+  "family": "geography",
+  "intent": "Show projected land on a clipped globe with a geographic coordinate grid.",
+  "support": "native",
+  "features": [
+    "orthographic projection",
+    "Sphere geometry",
+    "D3 graticule",
+    "projection clipping",
+    "world-atlas land geometry",
+    "layered geographic paths"
+  ],
+  "geometry": [{ "role": "geo", "count": 3, "maxCount": 3 }],
+  "minimumGeometrySimilarity": 0.999,
+  "source": {
+    "title": "Observable Plot projections",
+    "url": "https://observablehq.com/plot/features/projections"
+  },
+  "ai": {
+    "create": "Reproduce Observable Plot's orthographic sphere-and-graticule example and layer world-atlas land through the same rotated projection.",
+    "maintain": "Keep the real land topology conversion, sphere, D3 graticule, rotation, clipping, responsive fit, and paint order aligned."
+  }
+}

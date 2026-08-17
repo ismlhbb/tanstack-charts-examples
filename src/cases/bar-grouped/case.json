@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "order": 70,
+  "id": "bar-grouped",
+  "title": "Grouped bars",
+  "family": "bar",
+  "intent": "Compare female and male penguin counts side by side within each species.",
+  "support": "native",
+  "features": [
+    "grouped bars",
+    "nested band scales",
+    "group transform",
+    "categorical color",
+    "legend",
+    "responsive categorical labels"
+  ],
+  "geometry": [
+    {
+      "role": "bar",
+      "count": 6
+    }
+  ],
+  "guideAssertions": [
+    {
+      "id": "category-order",
+      "axis": {
+        "observable-plot": "fx",
+        "tanstack": "x"
+      },
+      "sequence": ["Adelie", "Chinstrap", "Gentoo"]
+    }
+  ],
+  "source": {
+    "title": "Observable Plot group transform",
+    "url": "https://observablehq.com/plot/transforms/group"
+  },
+  "ai": {
+    "create": "Create grouped vertical bars directly from the penguins observations, counting rows by species and sex with a categorical legend.",
+    "maintain": "Change the selected observations or width without stacking or overlapping the two sex groups within each species."
+  }
+}

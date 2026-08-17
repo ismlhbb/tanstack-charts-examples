@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "order": 60,
+  "id": "bar-horizontal-ranking",
+  "title": "Horizontal ranking with long labels",
+  "family": "bar",
+  "intent": "Rank metropolitan populations while keeping the source's long Metro labels visible.",
+  "support": "composed",
+  "features": [
+    "horizontal bars",
+    "descending categorical domain",
+    "long tick labels",
+    "automatic guide bounds"
+  ],
+  "geometry": [
+    {
+      "role": "bar",
+      "count": 8
+    },
+    {
+      "role": "rule",
+      "count": 1
+    }
+  ],
+  "source": {
+    "title": "Observable sample citywages",
+    "url": "https://github.com/observablehq/sample-datasets/blob/732c0148de741469b2bcc03f53d93b0ad0b93f0a/citywages.csv"
+  },
+  "ai": {
+    "create": "Create a horizontal ranking chart directly from eight citywages rows using POP_2015 and Metro, sorted by descending population.",
+    "maintain": "Change the selected metros or container width while keeping the population rank correct and every source label visible."
+  }
+}
