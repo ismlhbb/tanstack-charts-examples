@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 970,
+  "id": "97-rose",
+  "title": "English letter frequency rose",
+  "family": "polar",
+  "intent": "Compare six English letter frequencies through equal-angle sectors whose radii vary on one fixed scale.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "native radius-extending radial bars",
+    "categorical angle scale",
+    "fixed quantitative radius domain",
+    "responsive radial range",
+    "physical zero-radius baseline",
+    "raw source rows",
+    "semantic letter keys"
+  ],
+  "geometry": [{ "role": "arc", "count": 6, "maxCount": 6 }],
+  "minimumGeometrySimilarity": 0.995,
+  "source": {
+    "title": "Recharts Pie API",
+    "url": "https://recharts.github.io/en-US/api/Pie/"
+  },
+  "ai": {
+    "create": "Create six native radius-extending bars from Observable's alphabet rows, using letter angle bands and a fixed frequency scale whose responsive pixel range runs from 30% to 100% of the available radius.",
+    "maintain": "Change the selected letters without changing source order, the dataset-wide maximum, the responsive 30%-to-100% radial range, the physical zero-radius baseline, raw row identity, or semantic letter keys and colors."
+  }
+}

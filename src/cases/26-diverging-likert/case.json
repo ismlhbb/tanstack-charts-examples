@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "order": 260,
+  "id": "26-diverging-likert",
+  "title": "Diverging Likert responses",
+  "family": "survey",
+  "intent": "Compare response distributions across survey questions around a shared zero baseline.",
+  "support": "native",
+  "features": [
+    "anchored stack",
+    "grouped response counts",
+    "horizontal bars",
+    "categorical color",
+    "named neutral series"
+  ],
+  "geometry": [{ "role": "bar", "count": 25 }],
+  "source": {
+    "title": "Observable Plot stack transform",
+    "url": "https://observablehq.com/plot/transforms/stack"
+  },
+  "ai": {
+    "create": "Create a diverging Likert chart from the raw {Question, ID, Response} survey observations, counting responses and centering the neutral category on zero.",
+    "maintain": "Reorder response categories while keeping the neutral anchor, response-count lineage, stable colors, and categorical keys explicit in the chart definition."
+  }
+}

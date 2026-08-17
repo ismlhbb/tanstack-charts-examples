@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "order": 610,
+  "id": "61-quantile-ribbon",
+  "title": "Industry unemployment percentile ribbon",
+  "family": "uncertainty",
+  "intent": "Show the monthly median and central eighty percent of unemployment counts across U.S. industries.",
+  "support": "native",
+  "features": [
+    "quantile ribbon",
+    "percentile reducers",
+    "median line",
+    "group transform",
+    "raw repeated observations",
+    "TanStack groupBy",
+    "TanStack quantile"
+  ],
+  "geometry": [
+    { "role": "area", "count": 1 },
+    { "role": "line", "count": 1 }
+  ],
+  "source": {
+    "title": "Observable Plot group transform reducers",
+    "url": "https://observablehq.com/plot/transforms/group"
+  },
+  "ai": {
+    "create": "Create a time-series ribbon from raw industries observations using the tenth and ninetieth percentiles of unemployment with a median center line.",
+    "maintain": "Change the percentile interval while preserving the original date, industry, and unemployed fields through the reducer, UTC grouping, inferred extents, stable keys, and matching D3 quantile semantics."
+  }
+}

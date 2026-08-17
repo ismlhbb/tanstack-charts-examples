@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "order": 390,
+  "id": "40-geojson-map",
+  "title": "Westport House floor plan",
+  "family": "geography",
+  "intent": "Render a real indoor floor plan with planar GeoJSON coordinates.",
+  "support": "native",
+  "features": [
+    "geo mark",
+    "Observable Plot Westport House GeoJSON",
+    "121 source polygons",
+    "identity projection",
+    "d3-geo",
+    "geoShape"
+  ],
+  "geometry": [{ "role": "geo", "count": 121 }],
+  "source": {
+    "title": "Observable Plot identity projection",
+    "url": "https://observablehq.com/plot/features/projections#projection-options"
+  },
+  "ai": {
+    "create": "Import Observable Plot's pinned Westport House GeoJSON and render its source polygons with a fitted identity projection.",
+    "maintain": "Preserve source feature ids and properties, responsive planar fitting, one path per published feature, and the geo entrypoint boundary."
+  }
+}

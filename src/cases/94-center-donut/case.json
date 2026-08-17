@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 940,
+  "id": "94-center-donut",
+  "title": "Letter frequency donut with total",
+  "family": "polar",
+  "intent": "Show three English letter frequencies while keeping their aggregate frequency visible in the center.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "native pie allocation",
+    "source lineage",
+    "keyed annular arc sectors",
+    "selected-frequency aggregate",
+    "center radial text",
+    "responsive radius"
+  ],
+  "geometry": [
+    { "role": "arc", "count": 3, "maxCount": 3 },
+    { "role": "text", "count": 1, "maxCount": 1 }
+  ],
+  "minimumGeometrySimilarity": 0.999,
+  "source": {
+    "title": "Recharts Pie API",
+    "url": "https://recharts.github.io/en-US/api/Pie/"
+  },
+  "ai": {
+    "create": "Create a three-slice donut from Observable's alphabet rows using native pie allocation, with their selected-frequency total centered in the inner ring.",
+    "maintain": "Change the selected letters while preserving flat source lineage, semantic letter identities, the responsive inner-radius ratio, and a center total recomputed from the same selected rows."
+  }
+}

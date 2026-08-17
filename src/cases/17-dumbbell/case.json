@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "order": 180,
+  "id": "17-dumbbell",
+  "title": "Dumbbell comparison",
+  "family": "comparison",
+  "intent": "Compare metropolitan wage inequality in 1980 and 2015 with explicit endpoints and a connecting segment.",
+  "support": "native",
+  "features": [
+    "link mark",
+    "two endpoint dot layers",
+    "categorical y scale",
+    "paired comparison"
+  ],
+  "geometry": [
+    { "role": "link", "count": 8 },
+    { "role": "dot", "count": 16 }
+  ],
+  "source": {
+    "title": "Observable Plot link mark",
+    "url": "https://observablehq.com/plot/marks/link"
+  },
+  "ai": {
+    "create": "Create a horizontal dumbbell chart directly from citywages rows, comparing R90_10_1980 and R90_10_2015 for each nyt_display metro.",
+    "maintain": "Change the metro selection while preserving the imported wide row model, chronological endpoint colors, and source field names."
+  }
+}

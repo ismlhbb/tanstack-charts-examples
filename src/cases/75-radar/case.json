@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 750,
+  "id": "75-radar",
+  "title": "Simple radar chart",
+  "family": "polar",
+  "intent": "Compare one decathlete across four events after normalizing their different units.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "radial scale",
+    "polygon grid",
+    "radial tick labels",
+    "closed radial area",
+    "TanStack fold",
+    "TanStack normalize",
+    "TanStack select"
+  ],
+  "geometry": [
+    { "role": "radar", "count": 1 },
+    { "role": "text", "count": 9 }
+  ],
+  "minimumGeometrySimilarity": 0.9999,
+  "source": {
+    "title": "Recharts Simple Radar Chart",
+    "url": "https://recharts.github.io/en-US/examples/SimpleRadarChart/"
+  },
+  "ai": {
+    "create": "Create a radar chart from raw decathlon results by folding four ordered events, normalizing each event against the full population, and selecting the first athlete profile on a fixed zero-to-one radial domain.",
+    "maintain": "Change the subject or events while preserving authored metric direction, source population, event order, percentage guide values, stable event identity, and label placement."
+  }
+}

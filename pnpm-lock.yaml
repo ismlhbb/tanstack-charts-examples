@@ -14,6 +14,12 @@ importers:
       d3-array:
         specifier: ^3.2.4
         version: 3.2.4
+      d3-force:
+        specifier: ^3.0.0
+        version: 3.0.0
+      d3-format:
+        specifier: ^3.1.2
+        version: 3.1.2
       d3-geo:
         specifier: ^3.1.1
         version: 3.1.1
@@ -26,6 +32,9 @@ importers:
       d3-shape:
         specifier: ^3.2.0
         version: 3.2.0
+      d3-time:
+        specifier: ^3.1.0
+        version: 3.1.0
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -35,6 +44,9 @@ importers:
       topojson-client:
         specifier: ^3.1.0
         version: 3.1.0
+      us-atlas:
+        specifier: ^3.0.1
+        version: 3.0.1
       world-atlas:
         specifier: ^2.0.2
         version: 2.0.2
@@ -45,6 +57,12 @@ importers:
       '@types/d3-array':
         specifier: ^3.2.2
         version: 3.2.2
+      '@types/d3-force':
+        specifier: ^3.0.10
+        version: 3.0.10
+      '@types/d3-format':
+        specifier: ^3.0.4
+        version: 3.0.4
       '@types/d3-geo':
         specifier: ^3.1.1
         version: 3.1.1
@@ -57,6 +75,9 @@ importers:
       '@types/d3-shape':
         specifier: ^3.1.8
         version: 3.1.8
+      '@types/d3-time':
+        specifier: ^3.0.4
+        version: 3.0.4
       '@types/react':
         specifier: ^19.2.18
         version: 19.2.18
@@ -326,6 +347,9 @@ packages:
 
   '@types/d3-force@3.0.10':
     resolution: {integrity: sha512-ZYeSaCF3p73RdOKcjj+swRlZfnYpK1EbaDiYICEEp5Q6sUiqFaFQ9qgoshp5CzIyyb/yD09kD9o2zEltCexlgw==}
+
+  '@types/d3-format@3.0.4':
+    resolution: {integrity: sha512-fALi2aI6shfg7vM5KiR1wNJnZ7r6UuggVqtDA+xiEdPZQwy/trcQaHnwShLuLdta2rTymCNpxYTiMZX/e09F4g==}
 
   '@types/d3-geo@3.1.1':
     resolution: {integrity: sha512-65Emv9fQiQQqphLlRkuQ5ypPsOmWPhtBGCMv61JDPEPMvsx+gzhGf74yw1a78xFKPj6zw4AgQICJoQv0vK9M2w==}
@@ -864,6 +888,9 @@ packages:
     engines: {node: '>=16.20.0'}
     hasBin: true
 
+  us-atlas@3.0.1:
+    resolution: {integrity: sha512-wEIZCq0ImPvGblTd8gZMqNNCPkQshugMUG/8nkSWXb02+XqNFREg9atHOKP9w6prLZTpqcLhSvdBW81MkV3/0Q==}
+
   vite@8.2.1:
     resolution: {integrity: sha512-EU/eS7BH3XROHh2YnBefjM6DBKA6ZeMZEYQbj7NLWg5wHYlhB8B/Mayd5XsgWq+NFYccDOTemRpdETWR6Ka/lw==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -1073,6 +1100,8 @@ snapshots:
   '@types/d3-array@3.2.2': {}
 
   '@types/d3-force@3.0.10': {}
+
+  '@types/d3-format@3.0.4': {}
 
   '@types/d3-geo@3.1.1':
     dependencies:
@@ -1511,6 +1540,8 @@ snapshots:
       '@typescript/typescript-sunos-x64': 7.0.2
       '@typescript/typescript-win32-arm64': 7.0.2
       '@typescript/typescript-win32-x64': 7.0.2
+
+  us-atlas@3.0.1: {}
 
   vite@8.2.1(jiti@2.7.0):
     dependencies:

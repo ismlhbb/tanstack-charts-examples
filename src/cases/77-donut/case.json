@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 770,
+  "id": "77-donut",
+  "title": "English letter frequency donut",
+  "family": "polar",
+  "intent": "Compare the frequencies of five English letters while preserving a readable center.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "native pie allocation",
+    "source lineage",
+    "keyed annular arc sectors",
+    "inner and outer radii",
+    "responsive radius"
+  ],
+  "geometry": [{ "role": "arc", "count": 5, "maxCount": 5 }],
+  "minimumGeometrySimilarity": 0.9999,
+  "source": {
+    "title": "Recharts Pie Chart in Grid",
+    "url": "https://recharts.github.io/en-US/examples/PieChartInGrid/"
+  },
+  "ai": {
+    "create": "Create a five-slice donut chart from Observable's alphabet rows using native pie value allocation with letter and frequency.",
+    "maintain": "Change the selected letters while preserving raw field names, flat source lineage, the inner-radius ratio, clockwise source order, stable identities, and exact categorical fills."
+  }
+}

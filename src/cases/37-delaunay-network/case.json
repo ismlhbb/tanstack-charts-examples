@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "order": 370,
+  "id": "37-delaunay-network",
+  "title": "Delaunay spatial network",
+  "family": "spatial",
+  "intent": "Expose local adjacency among real automobile weight and fuel-economy observations by connecting every edge of a Delaunay triangulation.",
+  "support": "native",
+  "features": [
+    "native Delaunay link mark",
+    "resolved screen-space triangulation",
+    "spatial adjacency",
+    "source-linked edges",
+    "scatterplot"
+  ],
+  "geometry": [
+    { "role": "delaunay", "count": 63 },
+    { "role": "dot", "count": 24 }
+  ],
+  "source": {
+    "title": "Observable Plot Delaunay marks",
+    "url": "https://observablehq.com/plot/marks/delaunay"
+  },
+  "ai": {
+    "create": "Create a quantitative point diagram from automobile weight and fuel economy that connects all unique final-screen Delaunay neighbors using each library's native Delaunay link mark.",
+    "maintain": "Change the selected cars while preserving final-screen topology, both endpoint records, stable point-derived edge keys, and cast-free source channels."
+  }
+}

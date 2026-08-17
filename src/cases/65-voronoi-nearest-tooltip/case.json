@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "order": 650,
+  "id": "65-voronoi-nearest-tooltip",
+  "title": "Voronoi nearest-point interaction",
+  "family": "interaction",
+  "intent": "Partition automobile weight and fuel-economy observations into nearest-point regions and reveal the closest car.",
+  "support": "native",
+  "features": [
+    "native Voronoi cell mark",
+    "final-screen clipped cells",
+    "native two-dimensional nearest point",
+    "pointer tooltip",
+    "typed formatter"
+  ],
+  "geometry": [
+    { "role": "voronoi", "count": 18 },
+    { "role": "dot", "count": 18 }
+  ],
+  "interactionScenarios": [
+    {
+      "id": "voronoi-nearest-tooltip",
+      "steps": [
+        {
+          "type": "pointerMove",
+          "target": { "anchor": "car:AMC Concord:80:3003" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "tooltip.visible", "equals": true },
+            { "path": "tooltip.text", "includes": "AMC Concord" }
+          ]
+        },
+        { "type": "pointerLeave" },
+        {
+          "type": "assert",
+          "assertions": [{ "path": "tooltip.visible", "equals": false }]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Observable Plot Voronoi and pointer interactions",
+    "url": "https://observablehq.com/plot/marks/delaunay"
+  },
+  "ai": {
+    "create": "Create a cylinder-colored Voronoi scatterplot from raw automobile weight and fuel economy using the native optional Voronoi mark and native two-dimensional nearest-car tooltips.",
+    "maintain": "Change the selected cars while retaining bounded structured cells, stable source identity, dot-owned nearest focus, matching color domains, typed tooltip rows, responsive clipping, and keyboard focus."
+  }
+}

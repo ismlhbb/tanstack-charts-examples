@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "order": 430,
+  "id": "43-hexbin-density",
+  "title": "Hexagonally binned density",
+  "family": "distribution",
+  "intent": "Reveal the relationship between automobile weight and fuel economy by aggregating raw observations into fixed-pixel hexagonal bins.",
+  "support": "native",
+  "features": [
+    "hexbin",
+    "spatial hexbin mark",
+    "threshold color",
+    "resolved-layout pixel-space binning"
+  ],
+  "geometry": [{ "role": "hexagon", "count": 20 }],
+  "source": {
+    "title": "Observable Plot hexbin transform",
+    "url": "https://observablehq.com/plot/transforms/hexbin"
+  },
+  "ai": {
+    "create": "Create a responsive hexbin density chart from the Cars dataset's weight and fuel-economy fields. Use each library's semantic hexbin transform or mark with a 24-pixel bin width and threshold color.",
+    "maintain": "Change bin width and thresholds while preserving raw-row lineage, fixed-pixel bins, stable keys, and cast-free channels."
+  }
+}

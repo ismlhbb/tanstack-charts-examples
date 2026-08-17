@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "order": 520,
+  "id": "52-beeswarm-dodge",
+  "title": "Beeswarm distribution",
+  "family": "distribution",
+  "intent": "Show individual automobile fuel-economy observations without overplotting coincident values.",
+  "support": "native",
+  "features": [
+    "beeswarm",
+    "resolved pixel-space collision layout",
+    "native dodgeY layout",
+    "source-row identity"
+  ],
+  "geometry": [{ "role": "dot", "count": 72 }],
+  "minimumGeometrySimilarity": 0.994,
+  "source": {
+    "title": "Observable Plot dodge transform",
+    "url": "https://observablehq.com/plot/transforms/dodge"
+  },
+  "ai": {
+    "create": "Create a centered beeswarm from 72 imported cars economy (mpg) observations using fixed-radius collision avoidance.",
+    "maintain": "Change the dot radius while retaining the source field and updating both collision distance and mark radius for deterministic responsive layout."
+  }
+}

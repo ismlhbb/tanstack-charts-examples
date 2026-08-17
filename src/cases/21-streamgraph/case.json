@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "order": 220,
+  "id": "21-streamgraph",
+  "title": "Streamgraph",
+  "family": "composition",
+  "intent": "Show the changing composition of unemployment across every industry with a wiggle baseline and inside-out layer order.",
+  "support": "native",
+  "features": [
+    "native area stack",
+    "tidy source rows",
+    "streamgraph",
+    "wiggle offset",
+    "inside-out order",
+    "zero-origin stack translation"
+  ],
+  "geometry": [{ "role": "area", "count": 14 }],
+  "source": {
+    "title": "Observable Plot stack transform",
+    "url": "https://observablehq.com/plot/transforms/stack"
+  },
+  "ai": {
+    "create": "Create a responsive UTC streamgraph directly from the industries dataset's original date, industry, and unemployed fields using an areaY stack with a wiggle baseline and inside-out order.",
+    "maintain": "Change the stack order or offset while retaining raw industry rows, source identity, equivalent zero-origin wiggle semantics, and inferred interval points."
+  }
+}

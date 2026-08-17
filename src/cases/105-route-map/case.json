@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "order": 1050,
+  "id": "105-route-map",
+  "title": "HMS Beagle voyage",
+  "family": "geography",
+  "intent": "Trace Charles Darwin's recorded HMS Beagle voyage across the antimeridian.",
+  "support": "native",
+  "features": [
+    "Observable Plot Beagle coordinates",
+    "world-atlas 50m land",
+    "GeoJSON LineString construction",
+    "great-circle resampling",
+    "Equal Earth projection",
+    "antimeridian clipping"
+  ],
+  "geometry": [{ "role": "geo", "count": 4, "maxCount": 4 }],
+  "minimumGeometrySimilarity": 0.999,
+  "source": {
+    "title": "Observable Plot Beagle projection test",
+    "url": "https://github.com/observablehq/plot/blob/356f579b1d947ee05a914420eddff0f29cee300a/test/plots/beagle.ts"
+  },
+  "ai": {
+    "create": "Import Observable Plot's pinned Beagle coordinate rows, construct one GeoJSON LineString, and project it over world-atlas land as in Plot's reference test.",
+    "maintain": "Preserve the published coordinate order, visible route construction, ten-degree rotation, antimeridian clipping, D3 geographic resampling, and responsive sphere fitting."
+  }
+}

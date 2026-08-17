@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 990,
+  "id": "99-comparative-radar",
+  "title": "Comparative radar chart",
+  "family": "polar",
+  "intent": "Compare representative USA and GBR decathlon results across four normalized events.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "two grouped radial areas",
+    "polygon grid",
+    "radial tick labels",
+    "closed D3 curves",
+    "series visual channels",
+    "TanStack fold",
+    "TanStack normalize",
+    "TanStack select"
+  ],
+  "geometry": [
+    { "role": "radar", "count": 2, "maxCount": 2 },
+    { "role": "text", "count": 9, "maxCount": 9 }
+  ],
+  "minimumGeometrySimilarity": 0.9999,
+  "source": {
+    "title": "Recharts Simple Radar Chart",
+    "url": "https://recharts.github.io/en-US/examples/SimpleRadarChart/"
+  },
+  "ai": {
+    "create": "Create a comparative radar chart by folding and normalizing the full decathlon population, then filtering USA and GBR and selecting the first row per country and event.",
+    "maintain": "Update either profile while preserving authored metric direction, event order, first-row country selection, stable country-event identity, the fixed zero-to-one radial domain, and shared guide geometry."
+  }
+}

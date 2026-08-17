@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "order": 385,
+  "id": "39-density-contours",
+  "title": "Point density contours",
+  "family": "distribution",
+  "intent": "Reveal the shape and overlap of Palmer Penguins bill measurements with a two-dimensional kernel density estimate.",
+  "support": "native",
+  "features": [
+    "density contour mark",
+    "kernel density estimate",
+    "structured multipolygon geometry",
+    "resolved-layout pixel-space estimation"
+  ],
+  "geometry": [{ "role": "density", "count": 6 }],
+  "source": {
+    "title": "Observable Plot density",
+    "url": "https://observablehq.com/plot/marks/density"
+  },
+  "ai": {
+    "create": "Create six filled density contours over Palmer Penguins bill measurements. Use each library's semantic density mark with an 18-pixel bandwidth and the supplied measurement scales.",
+    "maintain": "Preserve D3-native density thresholds, pixel bandwidth, scale domains, structured multipolygon output, and responsive final-screen estimation."
+  }
+}

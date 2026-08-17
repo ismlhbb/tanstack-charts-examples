@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "order": 250,
+  "id": "25-calendar-heatmap",
+  "title": "Precipitation calendar heatmap",
+  "family": "time",
+  "intent": "Show Seattle daily precipitation across calendar weeks while retaining weekday rhythm and dry days.",
+  "support": "native",
+  "features": [
+    "calendar layout",
+    "cell mark",
+    "UTC week interval",
+    "two band scales",
+    "continuous color scale"
+  ],
+  "geometry": [{ "role": "cell", "count": 98 }],
+  "source": {
+    "title": "Observable Plot cell mark",
+    "url": "https://observablehq.com/plot/marks/cell"
+  },
+  "ai": {
+    "create": "Create a fourteen-week calendar heatmap from Observable's Seattle weather rows using date for calendar placement and precipitation for continuous color.",
+    "maintain": "Change the selected weather window while preserving UTC week alignment, raw date and precipitation fields, complete daily cells, and responsive labels."
+  }
+}

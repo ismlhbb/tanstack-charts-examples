@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "order": 330,
+  "id": "33-difference-chart",
+  "title": "Apple close versus moving average",
+  "family": "change",
+  "intent": "Show where Apple's daily closing price is above or below its twenty-day moving average while preserving exact interpolated crossings.",
+  "support": "native",
+  "features": [
+    "difference chart",
+    "interpolated crossings",
+    "positive and negative area",
+    "native difference mark"
+  ],
+  "geometry": [
+    { "role": "area", "count": 4, "maxCount": 15 },
+    { "role": "line", "count": 2 }
+  ],
+  "source": {
+    "title": "Observable Plot difference mark",
+    "url": "https://observablehq.com/plot/marks/difference"
+  },
+  "ai": {
+    "create": "Create a Close-versus-twenty-day-average difference chart directly from AAPL rows. Keep the rolling reducer visible and pass those prepared rows to differenceY; the mark owns crossing interpolation, sign lobes, and both boundary lines.",
+    "maintain": "Change the selected date window or rolling period without losing exact crossing boundaries, semantic colors, the original Date and Close fields, inferred extents, or cast-free channels."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "order": 320,
+  "id": "32-change-arrows",
+  "title": "Metro inequality change arrows",
+  "family": "change",
+  "intent": "Show how selected U.S. metros moved in population and wage inequality between 1980 and 2015.",
+  "support": "native",
+  "features": [
+    "arrow mark",
+    "typed endpoints",
+    "inequality direction color",
+    "quantitative x-y scales",
+    "fixed-size arrowheads"
+  ],
+  "geometry": [{ "role": "arrow", "count": 12 }],
+  "source": {
+    "title": "Observable Plot arrow mark",
+    "url": "https://observablehq.com/plot/marks/arrow"
+  },
+  "ai": {
+    "create": "Create a quantitative change chart from citywages with one directed arrow per metro from its 1980 population and wage-ratio coordinates to 2015, coloring inequality increases separately from decreases.",
+    "maintain": "Change the metro selection or arrowhead size while retaining the source endpoint fields, one semantic arrow per metro, and stable identity."
+  }
+}

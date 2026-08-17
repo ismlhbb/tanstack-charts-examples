@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 960,
+  "id": "96-nested-donut",
+  "title": "Nested Flare package sizes",
+  "family": "polar",
+  "intent": "Compare Flare animation and data package sizes with their core and specialized leaf-size composition in concentric rings.",
+  "support": "native",
+  "features": [
+    "polar coordinates",
+    "two native pie transforms",
+    "concentric arc layers",
+    "independent ring radii",
+    "flat source lineage",
+    "stable semantic keys"
+  ],
+  "geometry": [{ "role": "arc", "count": 6, "maxCount": 6 }],
+  "minimumGeometrySimilarity": 0.999,
+  "source": {
+    "title": "Recharts Two Level Pie Chart",
+    "url": "https://recharts.github.io/en-US/examples/TwoLevelPieChart/"
+  },
+  "ai": {
+    "create": "Aggregate Flare leaf sizes into animation and data families, then pass each ring through an independent native pie transform and render the resulting intervals as concentric radial-arc marks.",
+    "maintain": "Keep domain-specific family aggregation in the case while preserving independent declarative allocation, aligned family totals, ring order, flat lineage, semantic keys, the inter-ring gap, and responsive radii."
+  }
+}

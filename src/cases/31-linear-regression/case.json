@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "order": 310,
+  "id": "31-linear-regression",
+  "title": "Scatterplot with linear regression",
+  "family": "relationship",
+  "intent": "Show the relationship between automobile power and fuel economy together with a least-squares trend line.",
+  "support": "native",
+  "features": [
+    "linear regression",
+    "scatterplot",
+    "native regression mark",
+    "dot mark"
+  ],
+  "geometry": [
+    { "role": "dot", "count": 320 },
+    {
+      "role": "regression",
+      "count": 1,
+      "rendererRoles": {
+        "observable-plot": "regression",
+        "tanstack": "regression"
+      }
+    }
+  ],
+  "source": {
+    "title": "Observable Plot linear regression",
+    "url": "https://observablehq.com/plot/marks/linear-regression"
+  },
+  "ai": {
+    "create": "Create a scatterplot directly from the cars power (hp) and economy (mpg) fields. Use each library's linearRegressionY mark with the confidence band disabled.",
+    "maintain": "Change the selected automobiles while retaining raw source rows, source field names, aggregate regression lineage, and cast-free channels."
+  }
+}

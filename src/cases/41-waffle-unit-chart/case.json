@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "order": 410,
+  "id": "41-waffle-unit-chart",
+  "title": "English letter frequency waffle",
+  "family": "part-to-whole",
+  "intent": "Show English letter frequencies as a one-hundred-unit composition where every cell represents one percentage point.",
+  "support": "native",
+  "features": [
+    "native waffle mark",
+    "responsive packing",
+    "categorical color",
+    "cumulative unit allocation"
+  ],
+  "geometry": [{ "role": "waffle", "count": 26 }],
+  "source": {
+    "title": "Observable Plot waffle mark",
+    "url": "https://observablehq.com/plot/marks/waffle"
+  },
+  "ai": {
+    "create": "Create a responsive one-hundred-unit waffle chart from the alphabet frequency dataset with the native waffle mark.",
+    "maintain": "Change the unit precision while preserving the source letter and frequency fields, cumulative rounding, one stable position per unit, responsive near-square cells, and consistent letter colors."
+  }
+}

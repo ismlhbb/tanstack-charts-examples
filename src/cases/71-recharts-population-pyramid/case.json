@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 710,
+  "id": "71-recharts-population-pyramid",
+  "title": "Palmer penguins by species and sex",
+  "family": "comparison",
+  "intent": "Compare male and female Palmer penguin observation counts by species around a shared zero baseline.",
+  "support": "native",
+  "features": [
+    "horizontal bars",
+    "declarative grouped counts",
+    "signed value accessor",
+    "native diverging stack",
+    "absolute count formatting",
+    "grouped observations"
+  ],
+  "geometry": [{ "role": "bar", "count": 6 }],
+  "source": {
+    "title": "Recharts Population Pyramid",
+    "url": "https://recharts.github.io/en-US/examples/PopulationPyramid/"
+  },
+  "ai": {
+    "create": "Group Palmer penguin observations by species and sex with groupBy, then use one native diverging bar stack whose signed value accessor places male and female counts around zero.",
+    "maintain": "Select a different observation window while preserving grouped-count lineage, the signed channel, explicit stack and color order, symmetric domain, species order, and absolute count tick labels."
+  }
+}

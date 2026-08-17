@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "order": 350,
+  "id": "35-grouped-tooltip",
+  "title": "Grouped X tooltip",
+  "family": "interaction",
+  "intent": "Highlight and compare unemployment in manufacturing, construction, and finance at the nearest shared month in one pointer interaction.",
+  "support": "native",
+  "features": [
+    "grouped tooltip",
+    "focus-filtered date band",
+    "nearest x focus",
+    "multi-series line",
+    "automatic series swatches",
+    "top-layer tooltip",
+    "keyboard navigation"
+  ],
+  "geometry": [
+    { "role": "line", "count": 3 },
+    { "role": "dot", "count": 108 }
+  ],
+  "interactionScenarios": [
+    {
+      "id": "grouped-x-tooltip",
+      "steps": [
+        {
+          "type": "pointerMove",
+          "target": { "anchor": "date:2001-09-01" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "tooltip.visible", "equals": true },
+            { "path": "tooltip.text", "includes": "Manufacturing" },
+            { "path": "tooltip.text", "includes": "Construction" },
+            { "path": "tooltip.text", "includes": "Finance" }
+          ]
+        },
+        { "type": "screenshot", "name": "grouped-tooltip-open" },
+        { "type": "pointerLeave" },
+        {
+          "type": "assert",
+          "assertions": [{ "path": "tooltip.visible", "equals": false }]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Observable Plot pointerX interaction",
+    "url": "https://observablehq.com/plot/interactions/pointer"
+  },
+  "ai": {
+    "create": "Create a three-industry UTC line chart from the industries dataset's date, industry, and unemployed fields whose nearest shared month reveals all three observations.",
+    "maintain": "Add another industry while preserving one swatch and value per group, keyboard navigation by month, and top-layer responsive tooltip positioning."
+  }
+}

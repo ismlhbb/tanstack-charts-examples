@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "order": 630,
+  "id": "63-violin-distributions",
+  "title": "Violin distribution comparison",
+  "family": "distribution",
+  "intent": "Compare mirrored body-mass distributions and medians across Palmer Penguins species.",
+  "support": "native",
+  "features": [
+    "public grouped binY transform",
+    "public grouped max normalization",
+    "semantic violin mark",
+    "public grouped median reducer",
+    "category-step median tick",
+    "smooth D3 curve",
+    "categorical color"
+  ],
+  "geometry": [
+    { "role": "area", "count": 3 },
+    {
+      "role": "tick",
+      "count": 3,
+      "rendererRoles": { "observable-plot": "link", "tanstack": "tick" }
+    },
+    { "role": "dot", "count": 3 }
+  ],
+  "source": {
+    "title": "Observable Plot area marks",
+    "url": "https://observablehq.com/plot/marks/area"
+  },
+  "ai": {
+    "create": "Create three mirrored violin distributions by grouping binY on Palmer Penguins body mass, normalizing each species by its maximum count, and passing the prepared profiles to violinY with explicit median ticks and dots.",
+    "maintain": "Change the authored body-mass boundaries while preserving bin and summary lineage, semantic species centers, normalized widths, median indicators, colors, and responsive symmetry."
+  }
+}

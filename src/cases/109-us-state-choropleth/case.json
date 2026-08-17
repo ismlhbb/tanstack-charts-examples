@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "order": 1090,
+  "id": "109-us-state-choropleth",
+  "title": "United States county unemployment choropleth",
+  "family": "geography",
+  "intent": "Compare Bureau of Labor Statistics unemployment rates across United States counties.",
+  "support": "native",
+  "features": [
+    "us-atlas 3.0.1",
+    "BLS county unemployment",
+    "FIPS join",
+    "TopoJSON conversion",
+    "Albers USA composite projection",
+    "Alaska and Hawaii insets",
+    "3,141 Albers-USA county paths",
+    "quantile color scale"
+  ],
+  "geometry": [{ "role": "geo", "count": 3141, "maxCount": 3141 }],
+  "minimumGeometrySimilarity": 0.999,
+  "source": {
+    "title": "Observable Plot county unemployment choropleth",
+    "url": "https://observablehq.com/plot/marks/geo"
+  },
+  "ai": {
+    "create": "Copy Observable Plot's county choropleth pattern: join its pinned BLS unemployment snapshot to us-atlas counties by FIPS and project with Albers USA.",
+    "maintain": "Preserve all source rates and names, visible TopoJSON conversion and FIPS join, the explicit Albers-USA territory filter, stable county identity, Alaska and Hawaii insets, quantile colors, and one path per projected county."
+  }
+}

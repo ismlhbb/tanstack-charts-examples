@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 730,
+  "id": "73-many-point-scatter",
+  "title": "Automobile specifications scatter",
+  "family": "performance",
+  "intent": "Compare automobile weight and acceleration across 300 real models while encoding displacement by area and cylinder count by color.",
+  "support": "native",
+  "features": [
+    "large point count",
+    "real automobile data",
+    "radius scale",
+    "stable point keys"
+  ],
+  "geometry": [{ "role": "dot", "count": 300 }],
+  "source": {
+    "title": "Recharts Scatter Chart with many points (performance test)",
+    "url": "https://recharts.github.io/en-US/examples/ScatterChartPerformance/"
+  },
+  "ai": {
+    "create": "Create a dense scatter chart from Observable's cars rows using weight (lb), 0-60 mph (s), displacement (cc), and cylinders directly.",
+    "maintain": "Change the selected car window while preserving raw field names, stable model identity, inferred extents, cylinder colors, and cast-free channels."
+  }
+}

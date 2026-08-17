@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "order": 400,
+  "id": "40-force-directed-network",
+  "title": "Les Misérables character network",
+  "family": "network",
+  "intent": "Reveal character groups and relationships from Les Misérables without assigning fixed coordinates by hand.",
+  "support": "native",
+  "features": [
+    "force layout",
+    "eager static data-space simulation",
+    "deterministic revision",
+    "link mark",
+    "dot mark",
+    "direct node labels",
+    "categorical color"
+  ],
+  "geometry": [
+    { "role": "link", "count": 15 },
+    { "role": "dot", "count": 13 },
+    { "role": "text", "count": 13 }
+  ],
+  "source": {
+    "title": "Observable Plot link mark",
+    "url": "https://observablehq.com/plot/marks/link"
+  },
+  "ai": {
+    "create": "Create a force-directed network from Observable's Les Misérables nodes and links. Use each library's deterministic force layout, then render links behind grouped characters with direct labels.",
+    "maintain": "Change force strengths or the selected subgraph while preserving raw id, group, source, target, and value fields, stable identities, deterministic static layout, and padded quantitative domains."
+  }
+}
