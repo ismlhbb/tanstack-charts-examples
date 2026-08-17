@@ -171,6 +171,148 @@ const Case_120_themed_interactive_area = lazy(() => import('./cases/120-themed-i
 
 const Case_73_many_point_scatter = lazy(() => import('./cases/73-many-point-scatter/example'))
 
+const Case_44_framed_scatter = lazy(() => import('./cases/44-framed-scatter/example'))
+
+const Case_128_shadcn_bar_multiple = lazy(() => import('./cases/128-shadcn-bar-multiple/example'))
+
+const Case_129_shadcn_pie_donut_text = lazy(() => import('./cases/129-shadcn-pie-donut-text/example'))
+
+const Case_130_shadcn_radar_multiple = lazy(() => import('./cases/130-shadcn-radar-multiple/example'))
+
+const Case_131_shadcn_radial_text = lazy(() => import('./cases/131-shadcn-radial-text/example'))
+
+const Case_132_shadcn_tooltip_advanced = lazy(() => import('./cases/132-shadcn-tooltip-advanced/example'))
+
+const Case_133_shadcn_area_axes = lazy(() => import('./cases/133-shadcn-area-axes/example'))
+
+const Case_134_shadcn_area_default = lazy(() => import('./cases/134-shadcn-area-default/example'))
+
+const Case_135_shadcn_area_gradient = lazy(() => import('./cases/135-shadcn-area-gradient/example'))
+
+const Case_136_shadcn_area_icons = lazy(() => import('./cases/136-shadcn-area-icons/example'))
+
+const Case_137_shadcn_area_interactive = lazy(() => import('./cases/137-shadcn-area-interactive/example'))
+
+const Case_138_shadcn_area_legend = lazy(() => import('./cases/138-shadcn-area-legend/example'))
+
+const Case_139_shadcn_area_linear = lazy(() => import('./cases/139-shadcn-area-linear/example'))
+
+const Case_140_shadcn_area_stacked_expand = lazy(() => import('./cases/140-shadcn-area-stacked-expand/example'))
+
+const Case_141_shadcn_area_stacked = lazy(() => import('./cases/141-shadcn-area-stacked/example'))
+
+const Case_142_shadcn_area_step = lazy(() => import('./cases/142-shadcn-area-step/example'))
+
+const Case_143_shadcn_bar_active = lazy(() => import('./cases/143-shadcn-bar-active/example'))
+
+const Case_144_shadcn_bar_default = lazy(() => import('./cases/144-shadcn-bar-default/example'))
+
+const Case_145_shadcn_bar_horizontal = lazy(() => import('./cases/145-shadcn-bar-horizontal/example'))
+
+const Case_146_shadcn_bar_interactive = lazy(() => import('./cases/146-shadcn-bar-interactive/example'))
+
+const Case_147_shadcn_bar_label_custom = lazy(() => import('./cases/147-shadcn-bar-label-custom/example'))
+
+const Case_148_shadcn_bar_label = lazy(() => import('./cases/148-shadcn-bar-label/example'))
+
+const Case_149_shadcn_bar_mixed = lazy(() => import('./cases/149-shadcn-bar-mixed/example'))
+
+const Case_150_shadcn_bar_negative = lazy(() => import('./cases/150-shadcn-bar-negative/example'))
+
+const Case_151_shadcn_bar_stacked = lazy(() => import('./cases/151-shadcn-bar-stacked/example'))
+
+const Case_152_shadcn_line_default = lazy(() => import('./cases/152-shadcn-line-default/example'))
+
+const Case_153_shadcn_line_dots_colors = lazy(() => import('./cases/153-shadcn-line-dots-colors/example'))
+
+const Case_154_shadcn_line_dots_custom = lazy(() => import('./cases/154-shadcn-line-dots-custom/example'))
+
+const Case_155_shadcn_line_dots = lazy(() => import('./cases/155-shadcn-line-dots/example'))
+
+const Case_156_shadcn_line_interactive = lazy(() => import('./cases/156-shadcn-line-interactive/example'))
+
+const Case_157_shadcn_line_label_custom = lazy(() => import('./cases/157-shadcn-line-label-custom/example'))
+
+const Case_158_shadcn_line_label = lazy(() => import('./cases/158-shadcn-line-label/example'))
+
+const Case_159_shadcn_line_linear = lazy(() => import('./cases/159-shadcn-line-linear/example'))
+
+const Case_160_shadcn_line_multiple = lazy(() => import('./cases/160-shadcn-line-multiple/example'))
+
+const Case_161_shadcn_line_step = lazy(() => import('./cases/161-shadcn-line-step/example'))
+
+const Case_162_shadcn_pie_donut_active = lazy(() => import('./cases/162-shadcn-pie-donut-active/example'))
+
+const Case_163_shadcn_pie_donut = lazy(() => import('./cases/163-shadcn-pie-donut/example'))
+
+const Case_164_shadcn_pie_interactive = lazy(() => import('./cases/164-shadcn-pie-interactive/example'))
+
+const Case_165_shadcn_pie_label_custom = lazy(() => import('./cases/165-shadcn-pie-label-custom/example'))
+
+const Case_166_shadcn_pie_label_list = lazy(() => import('./cases/166-shadcn-pie-label-list/example'))
+
+const Case_167_shadcn_pie_label = lazy(() => import('./cases/167-shadcn-pie-label/example'))
+
+const Case_168_shadcn_pie_legend = lazy(() => import('./cases/168-shadcn-pie-legend/example'))
+
+const Case_169_shadcn_pie_separator_none = lazy(() => import('./cases/169-shadcn-pie-separator-none/example'))
+
+const Case_170_shadcn_pie_simple = lazy(() => import('./cases/170-shadcn-pie-simple/example'))
+
+const Case_171_shadcn_pie_stacked = lazy(() => import('./cases/171-shadcn-pie-stacked/example'))
+
+const Case_172_shadcn_radar_default = lazy(() => import('./cases/172-shadcn-radar-default/example'))
+
+const Case_173_shadcn_radar_dots = lazy(() => import('./cases/173-shadcn-radar-dots/example'))
+
+const Case_174_shadcn_radar_grid_circle_fill = lazy(() => import('./cases/174-shadcn-radar-grid-circle-fill/example'))
+
+const Case_175_shadcn_radar_grid_circle_no_lines = lazy(() => import('./cases/175-shadcn-radar-grid-circle-no-lines/example'))
+
+const Case_176_shadcn_radar_grid_circle = lazy(() => import('./cases/176-shadcn-radar-grid-circle/example'))
+
+const Case_177_shadcn_radar_grid_custom = lazy(() => import('./cases/177-shadcn-radar-grid-custom/example'))
+
+const Case_178_shadcn_radar_grid_fill = lazy(() => import('./cases/178-shadcn-radar-grid-fill/example'))
+
+const Case_179_shadcn_radar_grid_none = lazy(() => import('./cases/179-shadcn-radar-grid-none/example'))
+
+const Case_180_shadcn_radar_icons = lazy(() => import('./cases/180-shadcn-radar-icons/example'))
+
+const Case_181_shadcn_radar_label_custom = lazy(() => import('./cases/181-shadcn-radar-label-custom/example'))
+
+const Case_182_shadcn_radar_legend = lazy(() => import('./cases/182-shadcn-radar-legend/example'))
+
+const Case_183_shadcn_radar_lines_only = lazy(() => import('./cases/183-shadcn-radar-lines-only/example'))
+
+const Case_184_shadcn_radar_radius = lazy(() => import('./cases/184-shadcn-radar-radius/example'))
+
+const Case_185_shadcn_radial_grid = lazy(() => import('./cases/185-shadcn-radial-grid/example'))
+
+const Case_186_shadcn_radial_label = lazy(() => import('./cases/186-shadcn-radial-label/example'))
+
+const Case_187_shadcn_radial_shape = lazy(() => import('./cases/187-shadcn-radial-shape/example'))
+
+const Case_188_shadcn_radial_simple = lazy(() => import('./cases/188-shadcn-radial-simple/example'))
+
+const Case_189_shadcn_radial_stacked = lazy(() => import('./cases/189-shadcn-radial-stacked/example'))
+
+const Case_190_shadcn_tooltip_default = lazy(() => import('./cases/190-shadcn-tooltip-default/example'))
+
+const Case_191_shadcn_tooltip_formatter = lazy(() => import('./cases/191-shadcn-tooltip-formatter/example'))
+
+const Case_192_shadcn_tooltip_icons = lazy(() => import('./cases/192-shadcn-tooltip-icons/example'))
+
+const Case_193_shadcn_tooltip_indicator_line = lazy(() => import('./cases/193-shadcn-tooltip-indicator-line/example'))
+
+const Case_194_shadcn_tooltip_indicator_none = lazy(() => import('./cases/194-shadcn-tooltip-indicator-none/example'))
+
+const Case_195_shadcn_tooltip_label_custom = lazy(() => import('./cases/195-shadcn-tooltip-label-custom/example'))
+
+const Case_196_shadcn_tooltip_label_formatter = lazy(() => import('./cases/196-shadcn-tooltip-label-formatter/example'))
+
+const Case_197_shadcn_tooltip_label_none = lazy(() => import('./cases/197-shadcn-tooltip-label-none/example'))
+
 export const catalog: CatalogEntry[] = [
   { id: '01-line-gaps', title: 'Apple stock line with seasonal gaps', family: 'trend', intent: 'Render Apple closing prices while exposing first-quarter missing values as visible gaps through the y channel, matching Observable Plot\'s AAPL example without reshaping the source rows.', Component: Case_01_line_gaps },
   { id: '02-multi-line-end-labels', title: 'Industry unemployment with end labels', family: 'trend', intent: 'Compare monthly unemployment in manufacturing, construction, and finance and label each industry\'s newest dated observation directly, independent of input order.', Component: Case_02_multi_line_end_labels },
@@ -253,4 +395,75 @@ export const catalog: CatalogEntry[] = [
   { id: '51-faceted-distributions', title: 'Faceted distributions', family: 'small multiples', intent: 'Compare Palmer Penguins body-mass distributions by species on shared quantitative scales.', Component: Case_51_faceted_distributions },
   { id: '120-themed-interactive-area', title: 'Themed interactive area card', family: 'theme', intent: 'Present a polished traffic card whose inherited light and dark tokens, focused tooltip, and keyed range transitions work without application-specific chart drawing.', Component: Case_120_themed_interactive_area },
   { id: '73-many-point-scatter', title: 'Automobile specifications scatter', family: 'performance', intent: 'Compare automobile weight and acceleration across 300 real models while encoding displacement by area and cylinder count by color.', Component: Case_73_many_point_scatter },
+  { id: '44-framed-scatter', title: 'Framed guide-free scatterplot', family: 'decoration', intent: 'Use a filled inner frame to separate a guide-free plotting region from its surroundings.', Component: Case_44_framed_scatter },
+  { id: '128-shadcn-bar-multiple', title: 'shadcn Bar Chart - Multiple', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-multiple example with TanStack Charts.', Component: Case_128_shadcn_bar_multiple },
+  { id: '129-shadcn-pie-donut-text', title: 'shadcn Pie Chart - Donut with Text', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-donut-text example with TanStack Charts.', Component: Case_129_shadcn_pie_donut_text },
+  { id: '130-shadcn-radar-multiple', title: 'shadcn Radar Chart - Multiple', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-multiple example with TanStack Charts.', Component: Case_130_shadcn_radar_multiple },
+  { id: '131-shadcn-radial-text', title: 'shadcn Radial Chart - Text', family: 'radial', intent: 'Reproduce shadcn/ui\'s chart-radial-text example with TanStack Charts.', Component: Case_131_shadcn_radial_text },
+  { id: '132-shadcn-tooltip-advanced', title: 'shadcn Tooltip - Advanced', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-advanced example with TanStack Charts.', Component: Case_132_shadcn_tooltip_advanced },
+  { id: '133-shadcn-area-axes', title: 'shadcn Area Chart - Axes', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-axes example with TanStack Charts.', Component: Case_133_shadcn_area_axes },
+  { id: '134-shadcn-area-default', title: 'shadcn Area Chart', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-default example with TanStack Charts.', Component: Case_134_shadcn_area_default },
+  { id: '135-shadcn-area-gradient', title: 'shadcn Area Chart - Gradient', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-gradient example with TanStack Charts.', Component: Case_135_shadcn_area_gradient },
+  { id: '136-shadcn-area-icons', title: 'shadcn Area Chart - Icons', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-icons example with TanStack Charts.', Component: Case_136_shadcn_area_icons },
+  { id: '137-shadcn-area-interactive', title: 'shadcn Area Chart - Interactive', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-interactive example with TanStack Charts.', Component: Case_137_shadcn_area_interactive },
+  { id: '138-shadcn-area-legend', title: 'shadcn Area Chart - Legend', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-legend example with TanStack Charts.', Component: Case_138_shadcn_area_legend },
+  { id: '139-shadcn-area-linear', title: 'shadcn Area Chart - Linear', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-linear example with TanStack Charts.', Component: Case_139_shadcn_area_linear },
+  { id: '140-shadcn-area-stacked-expand', title: 'shadcn Area Chart - Stacked Expanded', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-stacked-expand example with TanStack Charts.', Component: Case_140_shadcn_area_stacked_expand },
+  { id: '141-shadcn-area-stacked', title: 'shadcn Area Chart - Stacked', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-stacked example with TanStack Charts.', Component: Case_141_shadcn_area_stacked },
+  { id: '142-shadcn-area-step', title: 'shadcn Area Chart - Step', family: 'area', intent: 'Reproduce shadcn/ui\'s chart-area-step example with TanStack Charts.', Component: Case_142_shadcn_area_step },
+  { id: '143-shadcn-bar-active', title: 'shadcn Bar Chart - Active', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-active example with TanStack Charts.', Component: Case_143_shadcn_bar_active },
+  { id: '144-shadcn-bar-default', title: 'shadcn Bar Chart', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-default example with TanStack Charts.', Component: Case_144_shadcn_bar_default },
+  { id: '145-shadcn-bar-horizontal', title: 'shadcn Bar Chart - Horizontal', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-horizontal example with TanStack Charts.', Component: Case_145_shadcn_bar_horizontal },
+  { id: '146-shadcn-bar-interactive', title: 'shadcn Bar Chart - Interactive', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-interactive example with TanStack Charts.', Component: Case_146_shadcn_bar_interactive },
+  { id: '147-shadcn-bar-label-custom', title: 'shadcn Bar Chart - Custom Label', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-label-custom example with TanStack Charts.', Component: Case_147_shadcn_bar_label_custom },
+  { id: '148-shadcn-bar-label', title: 'shadcn Bar Chart - Label', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-label example with TanStack Charts.', Component: Case_148_shadcn_bar_label },
+  { id: '149-shadcn-bar-mixed', title: 'shadcn Bar Chart - Mixed', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-mixed example with TanStack Charts.', Component: Case_149_shadcn_bar_mixed },
+  { id: '150-shadcn-bar-negative', title: 'shadcn Bar Chart - Negative', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-negative example with TanStack Charts.', Component: Case_150_shadcn_bar_negative },
+  { id: '151-shadcn-bar-stacked', title: 'shadcn Bar Chart - Stacked + Legend', family: 'bar', intent: 'Reproduce shadcn/ui\'s chart-bar-stacked example with TanStack Charts.', Component: Case_151_shadcn_bar_stacked },
+  { id: '152-shadcn-line-default', title: 'shadcn Line Chart', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-default example with TanStack Charts.', Component: Case_152_shadcn_line_default },
+  { id: '153-shadcn-line-dots-colors', title: 'shadcn Line Chart - Dots Colors', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-dots-colors example with TanStack Charts.', Component: Case_153_shadcn_line_dots_colors },
+  { id: '154-shadcn-line-dots-custom', title: 'shadcn Line Chart - Custom Dots', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-dots-custom example with TanStack Charts.', Component: Case_154_shadcn_line_dots_custom },
+  { id: '155-shadcn-line-dots', title: 'shadcn Line Chart - Dots', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-dots example with TanStack Charts.', Component: Case_155_shadcn_line_dots },
+  { id: '156-shadcn-line-interactive', title: 'shadcn Line Chart - Interactive', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-interactive example with TanStack Charts.', Component: Case_156_shadcn_line_interactive },
+  { id: '157-shadcn-line-label-custom', title: 'shadcn Line Chart - Custom Label', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-label-custom example with TanStack Charts.', Component: Case_157_shadcn_line_label_custom },
+  { id: '158-shadcn-line-label', title: 'shadcn Line Chart - Label', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-label example with TanStack Charts.', Component: Case_158_shadcn_line_label },
+  { id: '159-shadcn-line-linear', title: 'shadcn Line Chart - Linear', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-linear example with TanStack Charts.', Component: Case_159_shadcn_line_linear },
+  { id: '160-shadcn-line-multiple', title: 'shadcn Line Chart - Multiple', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-multiple example with TanStack Charts.', Component: Case_160_shadcn_line_multiple },
+  { id: '161-shadcn-line-step', title: 'shadcn Line Chart - Step', family: 'line', intent: 'Reproduce shadcn/ui\'s chart-line-step example with TanStack Charts.', Component: Case_161_shadcn_line_step },
+  { id: '162-shadcn-pie-donut-active', title: 'shadcn Pie Chart - Donut Active', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-donut-active example with TanStack Charts.', Component: Case_162_shadcn_pie_donut_active },
+  { id: '163-shadcn-pie-donut', title: 'shadcn Pie Chart - Donut', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-donut example with TanStack Charts.', Component: Case_163_shadcn_pie_donut },
+  { id: '164-shadcn-pie-interactive', title: 'shadcn Pie Chart - Interactive', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-interactive example with TanStack Charts.', Component: Case_164_shadcn_pie_interactive },
+  { id: '165-shadcn-pie-label-custom', title: 'shadcn Pie Chart - Custom Label', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-label-custom example with TanStack Charts.', Component: Case_165_shadcn_pie_label_custom },
+  { id: '166-shadcn-pie-label-list', title: 'shadcn Pie Chart - Label List', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-label-list example with TanStack Charts.', Component: Case_166_shadcn_pie_label_list },
+  { id: '167-shadcn-pie-label', title: 'shadcn Pie Chart - Label', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-label example with TanStack Charts.', Component: Case_167_shadcn_pie_label },
+  { id: '168-shadcn-pie-legend', title: 'shadcn Pie Chart - Legend', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-legend example with TanStack Charts.', Component: Case_168_shadcn_pie_legend },
+  { id: '169-shadcn-pie-separator-none', title: 'shadcn Pie Chart - Separator None', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-separator-none example with TanStack Charts.', Component: Case_169_shadcn_pie_separator_none },
+  { id: '170-shadcn-pie-simple', title: 'shadcn Pie Chart', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-simple example with TanStack Charts.', Component: Case_170_shadcn_pie_simple },
+  { id: '171-shadcn-pie-stacked', title: 'shadcn Pie Chart - Stacked', family: 'pie', intent: 'Reproduce shadcn/ui\'s chart-pie-stacked example with TanStack Charts.', Component: Case_171_shadcn_pie_stacked },
+  { id: '172-shadcn-radar-default', title: 'shadcn Radar Chart', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-default example with TanStack Charts.', Component: Case_172_shadcn_radar_default },
+  { id: '173-shadcn-radar-dots', title: 'shadcn Radar Chart - Dots', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-dots example with TanStack Charts.', Component: Case_173_shadcn_radar_dots },
+  { id: '174-shadcn-radar-grid-circle-fill', title: 'shadcn Radar Chart - Grid Circle Filled', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-grid-circle-fill example with TanStack Charts.', Component: Case_174_shadcn_radar_grid_circle_fill },
+  { id: '175-shadcn-radar-grid-circle-no-lines', title: 'shadcn Radar Chart - Grid Circle - No lines', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-grid-circle-no-lines example with TanStack Charts.', Component: Case_175_shadcn_radar_grid_circle_no_lines },
+  { id: '176-shadcn-radar-grid-circle', title: 'shadcn Radar Chart - Grid Circle', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-grid-circle example with TanStack Charts.', Component: Case_176_shadcn_radar_grid_circle },
+  { id: '177-shadcn-radar-grid-custom', title: 'shadcn Radar Chart - Grid Custom', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-grid-custom example with TanStack Charts.', Component: Case_177_shadcn_radar_grid_custom },
+  { id: '178-shadcn-radar-grid-fill', title: 'shadcn Radar Chart - Grid Filled', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-grid-fill example with TanStack Charts.', Component: Case_178_shadcn_radar_grid_fill },
+  { id: '179-shadcn-radar-grid-none', title: 'shadcn Radar Chart - Grid None', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-grid-none example with TanStack Charts.', Component: Case_179_shadcn_radar_grid_none },
+  { id: '180-shadcn-radar-icons', title: 'shadcn Radar Chart - Icons', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-icons example with TanStack Charts.', Component: Case_180_shadcn_radar_icons },
+  { id: '181-shadcn-radar-label-custom', title: 'shadcn Radar Chart - Custom Label', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-label-custom example with TanStack Charts.', Component: Case_181_shadcn_radar_label_custom },
+  { id: '182-shadcn-radar-legend', title: 'shadcn Radar Chart - Legend', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-legend example with TanStack Charts.', Component: Case_182_shadcn_radar_legend },
+  { id: '183-shadcn-radar-lines-only', title: 'shadcn Radar Chart - Lines Only', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-lines-only example with TanStack Charts.', Component: Case_183_shadcn_radar_lines_only },
+  { id: '184-shadcn-radar-radius', title: 'shadcn Radar Chart - Radius Axis', family: 'radar', intent: 'Reproduce shadcn/ui\'s chart-radar-radius example with TanStack Charts.', Component: Case_184_shadcn_radar_radius },
+  { id: '185-shadcn-radial-grid', title: 'shadcn Radial Chart - Grid', family: 'radial', intent: 'Reproduce shadcn/ui\'s chart-radial-grid example with TanStack Charts.', Component: Case_185_shadcn_radial_grid },
+  { id: '186-shadcn-radial-label', title: 'shadcn Radial Chart - Label', family: 'radial', intent: 'Reproduce shadcn/ui\'s chart-radial-label example with TanStack Charts.', Component: Case_186_shadcn_radial_label },
+  { id: '187-shadcn-radial-shape', title: 'shadcn Radial Chart - Shape', family: 'radial', intent: 'Reproduce shadcn/ui\'s chart-radial-shape example with TanStack Charts.', Component: Case_187_shadcn_radial_shape },
+  { id: '188-shadcn-radial-simple', title: 'shadcn Radial Chart', family: 'radial', intent: 'Reproduce shadcn/ui\'s chart-radial-simple example with TanStack Charts.', Component: Case_188_shadcn_radial_simple },
+  { id: '189-shadcn-radial-stacked', title: 'shadcn Radial Chart - Stacked', family: 'radial', intent: 'Reproduce shadcn/ui\'s chart-radial-stacked example with TanStack Charts.', Component: Case_189_shadcn_radial_stacked },
+  { id: '190-shadcn-tooltip-default', title: 'shadcn Tooltip - Default', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-default example with TanStack Charts.', Component: Case_190_shadcn_tooltip_default },
+  { id: '191-shadcn-tooltip-formatter', title: 'shadcn Tooltip - Formatter', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-formatter example with TanStack Charts.', Component: Case_191_shadcn_tooltip_formatter },
+  { id: '192-shadcn-tooltip-icons', title: 'shadcn Tooltip - Icons', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-icons example with TanStack Charts.', Component: Case_192_shadcn_tooltip_icons },
+  { id: '193-shadcn-tooltip-indicator-line', title: 'shadcn Tooltip - Line Indicator', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-indicator-line example with TanStack Charts.', Component: Case_193_shadcn_tooltip_indicator_line },
+  { id: '194-shadcn-tooltip-indicator-none', title: 'shadcn Tooltip - No Indicator', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-indicator-none example with TanStack Charts.', Component: Case_194_shadcn_tooltip_indicator_none },
+  { id: '195-shadcn-tooltip-label-custom', title: 'shadcn Tooltip - Custom label', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-label-custom example with TanStack Charts.', Component: Case_195_shadcn_tooltip_label_custom },
+  { id: '196-shadcn-tooltip-label-formatter', title: 'shadcn Tooltip - Label Formatter', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-label-formatter example with TanStack Charts.', Component: Case_196_shadcn_tooltip_label_formatter },
+  { id: '197-shadcn-tooltip-label-none', title: 'shadcn Tooltip - No Label', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-label-none example with TanStack Charts.', Component: Case_197_shadcn_tooltip_label_none },
 ]
