@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "order": 540,
+  "id": "54-bump-ranking",
+  "title": "Industry unemployment bump chart",
+  "family": "ranking",
+  "intent": "Show how five U.S. industries changed rank by January unemployment from 2004 through 2010.",
+  "support": "composed",
+  "features": [
+    "bump chart",
+    "rank preparation",
+    "multi-series line",
+    "bump-x curve",
+    "direct end labels"
+  ],
+  "geometry": [
+    { "role": "line", "count": 5 },
+    { "role": "dot", "count": 35 },
+    { "role": "text", "count": 5 }
+  ],
+  "source": {
+    "title": "Observable Plot line mark and bump curve",
+    "url": "https://observablehq.com/plot/marks/line"
+  },
+  "ai": {
+    "create": "Create a bump chart from the industries dataset by selecting January observations, ranking unemployment within each year, drawing one curved line per industry, and directly labeling the final rank.",
+    "maintain": "Change the industry or year selection while retaining the original date, industry, and unemployed fields through the ranking transform, stable series colors, and labels at the newest observation."
+  }
+}

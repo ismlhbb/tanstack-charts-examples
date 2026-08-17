@@ -313,6 +313,78 @@ const Case_196_shadcn_tooltip_label_formatter = lazy(() => import('./cases/196-s
 
 const Case_197_shadcn_tooltip_label_none = lazy(() => import('./cases/197-shadcn-tooltip-label-none/example'))
 
+const Case_histogram = lazy(() => import('./cases/histogram/example'))
+
+const Case_18_cumulative_histogram = lazy(() => import('./cases/18-cumulative-histogram/example'))
+
+const Case_20_normalized_stacked_area = lazy(() => import('./cases/20-normalized-stacked-area/example'))
+
+const Case_24_quantitative_binned_heatmap = lazy(() => import('./cases/24-quantitative-binned-heatmap/example'))
+
+const Case_50_empirical_cdf = lazy(() => import('./cases/50-empirical-cdf/example'))
+
+const Case_54_bump_ranking = lazy(() => import('./cases/54-bump-ranking/example'))
+
+const Case_55_indexed_multi_line = lazy(() => import('./cases/55-indexed-multi-line/example'))
+
+const Case_59_grouped_reducer_bars = lazy(() => import('./cases/59-grouped-reducer-bars/example'))
+
+const Case_60_lag_autocorrelation = lazy(() => import('./cases/60-lag-autocorrelation/example'))
+
+const Case_72_recharts_mixed_bars = lazy(() => import('./cases/72-recharts-mixed-bars/example'))
+
+const Case_80_echarts_axis_pointer = lazy(() => import('./cases/80-echarts-axis-pointer/example'))
+
+const Case_81_recharts_interactive_legend = lazy(() => import('./cases/81-recharts-interactive-legend/example'))
+
+const Case_82_chart_table_selection = lazy(() => import('./cases/82-chart-table-selection/example'))
+
+const Case_83_focus_context_window = lazy(() => import('./cases/83-focus-context-window/example'))
+
+const Case_84_pinned_nested_chart_tooltip = lazy(() => import('./cases/84-pinned-nested-chart-tooltip/example'))
+
+const Case_85_scrollable_resource_lanes = lazy(() => import('./cases/85-scrollable-resource-lanes/example'))
+
+const Case_86_streaming_window_preservation = lazy(() => import('./cases/86-streaming-window-preservation/example'))
+
+const Case_87_echarts_synchronized_cursors = lazy(() => import('./cases/87-echarts-synchronized-cursors/example'))
+
+const Case_88_echarts_free_cursor = lazy(() => import('./cases/88-echarts-free-cursor/example'))
+
+const Case_89_brush_range_selection = lazy(() => import('./cases/89-brush-range-selection/example'))
+
+const Case_90_zoomable_time_window = lazy(() => import('./cases/90-zoomable-time-window/example'))
+
+const Case_91_timeline_playback_scrubber = lazy(() => import('./cases/91-timeline-playback-scrubber/example'))
+
+const Case_92_editable_event_range = lazy(() => import('./cases/92-editable-event-range/example'))
+
+const Case_106_polar_line = lazy(() => import('./cases/106-polar-line/example'))
+
+const Case_107_polar_scatter = lazy(() => import('./cases/107-polar-scatter/example'))
+
+const Case_112_motion_entrance = lazy(() => import('./cases/112-motion-entrance/example'))
+
+const Case_113_motion_updates = lazy(() => import('./cases/113-motion-updates/example'))
+
+const Case_116_geometry_morph = lazy(() => import('./cases/116-geometry-morph/example'))
+
+const Case_117_focus_cursor_motion = lazy(() => import('./cases/117-focus-cursor-motion/example'))
+
+const Case_118_token_usage_calendar = lazy(() => import('./cases/118-token-usage-calendar/example'))
+
+const Case_119_stacked_bar_band_cursor = lazy(() => import('./cases/119-stacked-bar-band-cursor/example'))
+
+const Case_121_active_bar_dashboard = lazy(() => import('./cases/121-active-bar-dashboard/example'))
+
+const Case_122_premium_kpi_sparklines = lazy(() => import('./cases/122-premium-kpi-sparklines/example'))
+
+const Case_123_active_donut_metric = lazy(() => import('./cases/123-active-donut-metric/example'))
+
+const Case_124_theme_palette_matrix = lazy(() => import('./cases/124-theme-palette-matrix/example'))
+
+const Case_127_shadcn_dashboard = lazy(() => import('./cases/127-shadcn-dashboard/example'))
+
 export const catalog: CatalogEntry[] = [
   { id: '01-line-gaps', title: 'Apple stock line with seasonal gaps', family: 'trend', intent: 'Render Apple closing prices while exposing first-quarter missing values as visible gaps through the y channel, matching Observable Plot\'s AAPL example without reshaping the source rows.', Component: Case_01_line_gaps },
   { id: '02-multi-line-end-labels', title: 'Industry unemployment with end labels', family: 'trend', intent: 'Compare monthly unemployment in manufacturing, construction, and finance and label each industry\'s newest dated observation directly, independent of input order.', Component: Case_02_multi_line_end_labels },
@@ -466,4 +538,40 @@ export const catalog: CatalogEntry[] = [
   { id: '195-shadcn-tooltip-label-custom', title: 'shadcn Tooltip - Custom label', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-label-custom example with TanStack Charts.', Component: Case_195_shadcn_tooltip_label_custom },
   { id: '196-shadcn-tooltip-label-formatter', title: 'shadcn Tooltip - Label Formatter', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-label-formatter example with TanStack Charts.', Component: Case_196_shadcn_tooltip_label_formatter },
   { id: '197-shadcn-tooltip-label-none', title: 'shadcn Tooltip - No Label', family: 'tooltip', intent: 'Reproduce shadcn/ui\'s chart-tooltip-label-none example with TanStack Charts.', Component: Case_197_shadcn_tooltip_label_none },
+  { id: 'histogram', title: 'Histogram', family: 'distribution', intent: 'Show the distribution of automobile fuel economy using nine fixed five-mpg bins from 5 through 50.', Component: Case_histogram },
+  { id: '18-cumulative-histogram', title: 'Cumulative histogram', family: 'distribution', intent: 'Show how 2016 Olympic athlete counts accumulate across inferred weight bins.', Component: Case_18_cumulative_histogram },
+  { id: '20-normalized-stacked-area', title: 'Industry share of unemployment', family: 'composition', intent: 'Compare every industry\'s share of monthly unemployment using a normalized stack from the original imported observations.', Component: Case_20_normalized_stacked_area },
+  { id: '24-quantitative-binned-heatmap', title: 'Quantitative binned heatmap', family: 'distribution', intent: 'Reveal the joint distribution of penguin bill length and depth with a fixed two-dimensional bin grid.', Component: Case_24_quantitative_binned_heatmap },
+  { id: '50-empirical-cdf', title: 'Empirical cumulative distribution', family: 'distribution', intent: 'Compare each observed automobile fuel economy with the proportion of cars at or below it.', Component: Case_50_empirical_cdf },
+  { id: '54-bump-ranking', title: 'Industry unemployment bump chart', family: 'ranking', intent: 'Show how five U.S. industries changed rank by January unemployment from 2004 through 2010.', Component: Case_54_bump_ranking },
+  { id: '55-indexed-multi-line', title: 'Indexed industry unemployment', family: 'trend', intent: 'Compare four U.S. industries as relative unemployment change from January 2008.', Component: Case_55_indexed_multi_line },
+  { id: '59-grouped-reducer-bars', title: 'Mean penguin mass reducer bars', family: 'bar', intent: 'Aggregate raw penguin observations into mean body mass by species and label each resulting bar.', Component: Case_59_grouped_reducer_bars },
+  { id: '60-lag-autocorrelation', title: 'AAPL lag-one autocorrelation', family: 'relationship', intent: 'Compare each Apple closing price with the preceding trading day\'s close to reveal serial dependence.', Component: Case_60_lag_autocorrelation },
+  { id: '72-recharts-mixed-bars', title: 'Stacked and adjacent Seattle weather bars', family: 'comparison', intent: 'Compare daily maximum temperature with precipitation and wind stacked beside it for each date.', Component: Case_72_recharts_mixed_bars },
+  { id: '80-echarts-axis-pointer', title: 'Snapped axis pointer with grouped tooltip', family: 'interaction', intent: 'Track the nearest shared date with a vertical crosshair and compare every series in one rich tooltip.', Component: Case_80_echarts_axis_pointer },
+  { id: '81-recharts-interactive-legend', title: 'Interactive series legend', family: 'interaction', intent: 'Toggle individual series from a legend without changing the chart\'s quantitative domain.', Component: Case_81_recharts_interactive_legend },
+  { id: '82-chart-table-selection', title: 'Linked chart and data table selection', family: 'interaction', intent: 'Select a plotted observation and highlight its matching row in an accessible data table.', Component: Case_82_chart_table_selection },
+  { id: '83-focus-context-window', title: 'Focus and context time window', family: 'interaction', intent: 'Use a compact overview to choose the explicit time domain shown by a larger detail chart.', Component: Case_83_focus_context_window },
+  { id: '84-pinned-nested-chart-tooltip', title: 'Expanding pinned energy tooltip', family: 'interaction', intent: 'Keep monthly energy totals compact during transient inspection, then smoothly expand the same pinned tooltip into consumption and solar-use detail.', Component: Case_84_pinned_nested_chart_tooltip },
+  { id: '85-scrollable-resource-lanes', title: 'Scrollable resource timeline lanes', family: 'interaction', intent: 'Navigate a wide resource schedule with native horizontal scrolling while preserving lane order and task geometry.', Component: Case_85_scrollable_resource_lanes },
+  { id: '86-streaming-window-preservation', title: 'Streaming window preservation', family: 'interaction', intent: 'Append daily package-download observations without moving a user-locked time viewport.', Component: Case_86_streaming_window_preservation },
+  { id: '87-echarts-synchronized-cursors', title: 'Synchronized cursors across views', family: 'interaction', intent: 'Track one semantic date across current and previous U.S. airport traveler views with independent quantitative domains.', Component: Case_87_echarts_synchronized_cursors },
+  { id: '88-echarts-free-cursor', title: 'Free cursor over car measurements', family: 'interaction', intent: 'Track an unconstrained x and y plot position without snapping to the nearest datum.', Component: Case_88_echarts_free_cursor },
+  { id: '89-brush-range-selection', title: 'Observed monthly AAPL brush selection', family: 'interaction', intent: 'Select AAPL monthly closes with a direct horizontal drag that snaps both boundaries to observed trading dates.', Component: Case_89_brush_range_selection },
+  { id: '90-zoomable-time-window', title: 'Wheel zoom and pan over AAPL closes', family: 'interaction', intent: 'Zoom a continuous time viewport around the pointer, pan the cropped domain, and restore the full extent.', Component: Case_90_zoomable_time_window },
+  { id: '91-timeline-playback-scrubber', title: 'AAPL close playback scrubber', family: 'interaction', intent: 'Scrub a semantic playhead through stable time frames with a direct drag while keeping the chart data controlled.', Component: Case_91_timeline_playback_scrubber },
+  { id: '92-editable-event-range', title: 'Editable event range', family: 'interaction', intent: 'Edit a keyed schedule event by dragging its end handle while preserving the event start, lane, and identity.', Component: Case_92_editable_event_range },
+  { id: '106-polar-line', title: 'Seattle daily high-temperature polar line', family: 'polar', intent: 'Follow Seattle\'s observed daily high temperatures through one calendar year.', Component: Case_106_polar_line },
+  { id: '107-polar-scatter', title: 'Surface wind polar scatter', family: 'polar', intent: 'Compare gridded surface-wind observations by direction and speed.', Component: Case_107_polar_scatter },
+  { id: '112-motion-entrance', title: 'Staggered entrance motion', family: 'motion', intent: 'Tune the entrance timing of a composed bar and line chart, including a per-datum exception and independent line timing.', Component: Case_112_motion_entrance },
+  { id: '113-motion-updates', title: 'Interrupted spring updates', family: 'motion', intent: 'Compare tweens and physical springs while keyed data is reordered, inserted, removed, and interrupted.', Component: Case_113_motion_updates },
+  { id: '116-geometry-morph', title: 'Cross-chart geometry morph', family: 'motion', intent: 'Stress keyed spring motion by morphing the same data between bars, a rose, a donut, and packed bubbles.', Component: Case_116_geometry_morph },
+  { id: '117-focus-cursor-motion', title: 'Focus and crosshair motion', family: 'motion', intent: 'Animate primary, grouped, and unmatched mark states while a labeled momentum-preserving crosshair follows pointer and keyboard focus.', Component: Case_117_focus_cursor_motion },
+  { id: '118-token-usage-calendar', title: 'Token use calendar heatmap', family: 'time', intent: 'Show twelve months of token activity in contribution-style week columns, with recent usage emerging in the right half and quiet days kept visually consistent.', Component: Case_118_token_usage_calendar },
+  { id: '119-stacked-bar-band-cursor', title: 'Stacked bars with band and rule cursors', family: 'interaction', intent: 'Track one stacked-bar category with a labeled full-height x band and the focused segment endpoint with a labeled dotted y rule.', Component: Case_119_stacked_bar_band_cursor },
+  { id: '121-active-bar-dashboard', title: 'Active bar dashboard', family: 'theme', intent: 'Use metric totals as the series controls for a dense daily bar chart with gradient paint, focused-bar emphasis, and spring updates.', Component: Case_121_active_bar_dashboard },
+  { id: '122-premium-kpi-sparklines', title: 'Premium KPI sparklines', family: 'composition', intent: 'Present three business metrics as restrained, theme-aware cards with compact line and area trends that remain coherent during live data updates.', Component: Case_122_premium_kpi_sparklines },
+  { id: '123-active-donut-metric', title: 'Active donut metric', family: 'theme', intent: 'Keep one browser share selected across pointer and button input while its wedge, detached ring, center value, and legend state move together.', Component: Case_123_active_donut_metric },
+  { id: '124-theme-palette-matrix', title: 'Theme palette matrix', family: 'theme', intent: 'Render one compact gradient area and comparison line with neutral, vibrant, and monochrome CSS-variable palettes that follow light and dark color schemes.', Component: Case_124_theme_palette_matrix },
+  { id: '127-shadcn-dashboard', title: 'shadcn dashboard', family: 'application', intent: 'Reproduce shadcn/ui\'s canonical dashboard shell and interactive stacked-area card while replacing only Recharts with TanStack Charts.', Component: Case_127_shadcn_dashboard },
 ]

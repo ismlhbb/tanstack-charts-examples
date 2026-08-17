@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "echarts",
+  "order": 860,
+  "id": "86-streaming-window-preservation",
+  "title": "Streaming window preservation",
+  "family": "interaction",
+  "intent": "Append daily package-download observations without moving a user-locked time viewport.",
+  "support": "composed",
+  "features": [
+    "deterministic streaming",
+    "locked viewport domain",
+    "stable data keys",
+    "accessible append control",
+    "follow-latest control",
+    "unlock viewport control",
+    "explicit offscreen update announcement",
+    "dynamic chart definition",
+    "visible-window scale inference",
+    "decorative line layer",
+    "single interaction target per observation"
+  ],
+  "geometry": [
+    { "view": "main", "role": "line", "count": 1 },
+    { "view": "main", "role": "dot", "count": 8 }
+  ],
+  "minimumGeometrySimilarity": 0.995,
+  "interactionScenarios": [
+    {
+      "id": "append-outside-locked-window",
+      "steps": [
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "data.count", "equals": 12 },
+            { "path": "visible.count", "equals": 8 },
+            { "path": "viewport.start", "equals": "2018-10-05" },
+            { "path": "viewport.end", "equals": "2018-10-12" },
+            { "path": "viewport.locked", "equals": true }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "role": "button", "name": "Append one sample" },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": {
+                "role": "button",
+                "name": "Follow the latest eight samples"
+              },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": {
+                "role": "button",
+                "name": "Unlock the viewport and show every sample"
+              },
+              "property": "height",
+              "atLeast": 44
+            }
+          ]
+        },
+        {
+          "type": "click",
+          "target": { "view": "main", "anchor": "control:append" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "data.count", "equals": 13 },
+            { "path": "visible.count", "equals": 8 },
+            { "path": "viewport.start", "equals": "2018-10-05" },
+            { "path": "viewport.end", "equals": "2018-10-12" },
+            { "path": "viewport.locked", "equals": true },
+            { "path": "control.appended", "equals": 1 }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-streaming-status]"
+              },
+              "property": "text",
+              "includes": "outside the locked viewport"
+            },
+            {
+              "target": { "role": "button", "name": "Append one sample" },
+              "property": "focused",
+              "equals": true
+            }
+          ]
+        },
+        { "type": "screenshot", "name": "offscreen-append-announcement" },
+        { "type": "update", "revision": 1 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "data.count", "equals": 13 },
+            { "path": "data.ids", "includes": "2018-10-14" },
+            { "path": "data.domainEnd", "equals": "2018-10-14" },
+            { "path": "visible.count", "equals": 8 },
+            { "path": "viewport.start", "equals": "2018-10-05" },
+            { "path": "viewport.end", "equals": "2018-10-12" },
+            { "path": "viewport.locked", "equals": true },
+            { "path": "control.appended", "equals": 1 }
+          ]
+        },
+        { "type": "update", "revision": 0 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "data.count", "equals": 13 },
+            { "path": "data.ids", "includes": "2018-10-13" },
+            { "path": "data.domainEnd", "equals": "2018-10-13" },
+            { "path": "visible.count", "equals": 8 },
+            { "path": "viewport.start", "equals": "2018-10-05" },
+            { "path": "viewport.end", "equals": "2018-10-12" },
+            { "path": "viewport.locked", "equals": true },
+            { "path": "control.appended", "equals": 1 }
+          ]
+        },
+        {
+          "type": "click",
+          "target": { "view": "main", "anchor": "control:follow" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "visible.count", "equals": 8 },
+            { "path": "visible.ids", "includes": "2018-10-13" },
+            { "path": "viewport.start", "equals": "2018-10-06" },
+            { "path": "viewport.end", "equals": "2018-10-13" },
+            { "path": "viewport.locked", "equals": false },
+            { "path": "viewport.mode", "equals": "latest" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-streaming-status]"
+              },
+              "property": "text",
+              "includes": "Following the latest samples"
+            }
+          ]
+        },
+        {
+          "type": "click",
+          "target": { "view": "main", "anchor": "control:all" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "visible.count", "equals": 13 },
+            { "path": "viewport.start", "equals": "2018-10-01" },
+            { "path": "viewport.end", "equals": "2018-10-13" },
+            { "path": "viewport.locked", "equals": false },
+            { "path": "viewport.mode", "equals": "all" }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Apache ECharts dynamic data",
+    "url": "https://echarts.apache.org/handbook/en/how-to/data/dynamic-data/"
+  },
+  "ai": {
+    "create": "Create a deterministic streaming line chart from daily package downloads with an accessible append control and a user-owned UTC viewport that does not move when new observations arrive.",
+    "maintain": "Use each observation date as stable identity, derive the visible slice from the explicit viewport, and advance through source rows independently from the locked scale domain."
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "echarts",
+  "order": 910,
+  "id": "91-timeline-playback-scrubber",
+  "title": "AAPL close playback scrubber",
+  "family": "interaction",
+  "intent": "Scrub a semantic playhead through stable time frames with a direct drag while keeping the chart data controlled.",
+  "support": "native",
+  "features": [
+    "timeline playback",
+    "semantic playhead",
+    "real pointer drag",
+    "snapped time frames",
+    "controlled semantic frame",
+    "first-party scale handle",
+    "resolved-scale candidate snapping",
+    "keyboard scrubbing",
+    "44 pixel hit target",
+    "play and pause control",
+    "live frame status"
+  ],
+  "geometry": [
+    { "id": "playback-line", "view": "main", "role": "line", "count": 1 },
+    { "id": "playback-points", "view": "main", "role": "dot", "count": 8 },
+    { "id": "scrubber-rules", "view": "main", "role": "rule", "count": 2 }
+  ],
+  "minimumGeometrySimilarity": 0.985,
+  "interactionScenarios": [
+    {
+      "id": "scrub-forward",
+      "steps": [
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "playhead.index", "equals": 2 },
+            { "path": "playhead.date", "equals": "2018-01-04" },
+            { "path": "playhead.value", "equals": 173.029999 },
+            { "path": "interaction.dragging", "equals": false }
+          ]
+        },
+        {
+          "type": "drag",
+          "from": { "view": "main", "anchor": "frame:2018-01-04" },
+          "to": { "view": "main", "anchor": "frame:2018-01-10" },
+          "steps": 12
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "playhead.index", "equals": 6 },
+            { "path": "playhead.date", "equals": "2018-01-10" },
+            { "path": "playhead.value", "equals": 174.289993 },
+            {
+              "path": "playhead.progress",
+              "approx": 0.8571428571,
+              "tolerance": 0.000001
+            },
+            { "path": "interaction.dragging", "equals": false },
+            { "path": "interaction.scrubCount", "equals": 1 },
+            {
+              "path": "frames.ids",
+              "equals": [
+                "2018-01-02",
+                "2018-01-03",
+                "2018-01-04",
+                "2018-01-05",
+                "2018-01-08",
+                "2018-01-09",
+                "2018-01-10",
+                "2018-01-11"
+              ]
+            }
+          ]
+        },
+        { "type": "update", "revision": 1 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "playhead.index", "equals": 6 },
+            { "path": "playhead.date", "equals": "2018-01-10" },
+            { "path": "playhead.value", "equals": 174.289993 },
+            { "path": "frames.jan5Close", "equals": 175 },
+            { "path": "interaction.dragging", "equals": false },
+            { "path": "interaction.scrubCount", "equals": 1 }
+          ]
+        },
+        { "type": "update", "revision": 0 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "playhead.index", "equals": 6 },
+            { "path": "playhead.date", "equals": "2018-01-10" },
+            { "path": "playhead.value", "equals": 174.289993 },
+            { "path": "frames.jan5Close", "equals": 175 },
+            { "path": "interaction.dragging", "equals": false },
+            { "path": "interaction.scrubCount", "equals": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scrub-backward",
+      "steps": [
+        {
+          "type": "drag",
+          "from": { "view": "main", "anchor": "frame:2018-01-04" },
+          "to": { "view": "main", "anchor": "frame:2018-01-02" },
+          "steps": 8
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "playhead.index", "equals": 0 },
+            { "path": "playhead.date", "equals": "2018-01-02" },
+            { "path": "playhead.progress", "approx": 0, "tolerance": 0 },
+            { "path": "interaction.dragging", "equals": false },
+            { "path": "interaction.scrubCount", "equals": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard-scrub",
+      "steps": [
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "role": "slider", "name": "Timeline frame" },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": { "role": "button", "name": "Play timeline" },
+              "property": "width",
+              "atLeast": 44
+            },
+            {
+              "target": { "role": "button", "name": "Play timeline" },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": { "selector": "[data-chart-handle-track]" },
+              "property": "height",
+              "equals": 4
+            },
+            {
+              "target": { "selector": "[data-chart-handle-track]" },
+              "property": "width",
+              "atLeast": 100
+            },
+            {
+              "target": { "selector": "[data-chart-handle]" },
+              "property": "width",
+              "approx": 20,
+              "tolerance": 0.01
+            },
+            {
+              "target": { "selector": "[data-chart-handle]" },
+              "property": "height",
+              "approx": 20,
+              "tolerance": 0.01
+            },
+            {
+              "target": { "selector": ".ts-conformance-playback-toolbar" },
+              "property": "contained",
+              "within": { "root": true },
+              "equals": true
+            },
+            {
+              "target": { "role": "status" },
+              "property": "count",
+              "equals": 1
+            }
+          ]
+        },
+        {
+          "type": "key",
+          "key": "ArrowLeft",
+          "target": { "view": "main", "anchor": "frame:2018-01-04" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "playhead.index", "equals": 1 },
+            { "path": "playhead.date", "equals": "2018-01-03" },
+            { "path": "playhead.value", "equals": 172.229996 },
+            { "path": "interaction.scrubCount", "equals": 1 },
+            { "path": "interaction.playing", "equals": false }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "role": "slider", "name": "Timeline frame" },
+              "property": "focused",
+              "equals": true
+            },
+            {
+              "target": {
+                "selector": ".ts-conformance-playback-announcement"
+              },
+              "property": "text",
+              "includes": "2018-01-03"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cancel-scrub",
+      "steps": [
+        {
+          "type": "pointerDown",
+          "target": { "view": "main", "anchor": "frame:2018-01-04" }
+        },
+        {
+          "type": "pointerMove",
+          "target": { "view": "main", "anchor": "frame:2018-01-10" },
+          "steps": 8
+        },
+        { "type": "pointerCancel" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "playhead.index", "equals": 2 },
+            { "path": "playhead.date", "equals": "2018-01-04" },
+            { "path": "interaction.dragging", "equals": false },
+            { "path": "interaction.scrubCount", "equals": 0 }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": ".ts-conformance-playback-announcement"
+              },
+              "property": "text",
+              "includes": "2018-01-04"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "playback-lifecycle",
+      "steps": [
+        {
+          "type": "key",
+          "key": "End",
+          "target": { "view": "main", "anchor": "frame:2018-01-04" }
+        },
+        {
+          "type": "key",
+          "key": "ArrowLeft",
+          "target": { "view": "main", "anchor": "frame:2018-01-11" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "playhead.index", "equals": 6 },
+            { "path": "playhead.date", "equals": "2018-01-10" },
+            { "path": "interaction.playing", "equals": false }
+          ]
+        },
+        {
+          "type": "click",
+          "target": { "view": "main", "anchor": "control:play" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "interaction.playing", "equals": true },
+            { "path": "playhead.index", "equals": 6 }
+          ]
+        },
+        { "type": "wait", "durationMs": 800 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "interaction.playing", "equals": true },
+            { "path": "playhead.index", "equals": 7 },
+            { "path": "playhead.date", "equals": "2018-01-11" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "selector": ".ts-conformance-playback-current" },
+              "property": "text",
+              "includes": "2018-01-11"
+            }
+          ]
+        },
+        { "type": "wait", "durationMs": 800 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "interaction.playing", "equals": false },
+            { "path": "playhead.index", "equals": 7 }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": ".ts-conformance-playback-announcement"
+              },
+              "property": "text",
+              "includes": "Playback ended"
+            },
+            {
+              "target": { "role": "button", "name": "Play timeline" },
+              "property": "attribute",
+              "attribute": "aria-pressed",
+              "equals": "false"
+            }
+          ]
+        },
+        {
+          "type": "click",
+          "target": { "view": "main", "anchor": "control:play" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "interaction.playing", "equals": true },
+            { "path": "playhead.index", "equals": 0 },
+            { "path": "playhead.date", "equals": "2018-01-02" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": ".ts-conformance-playback-announcement"
+              },
+              "property": "text",
+              "includes": "Playback restarted"
+            },
+            {
+              "target": { "role": "button", "name": "Pause timeline" },
+              "property": "attribute",
+              "attribute": "aria-pressed",
+              "equals": "true"
+            }
+          ]
+        },
+        { "type": "wait", "durationMs": 800 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "interaction.playing", "equals": true },
+            { "path": "playhead.index", "equals": 1 },
+            { "path": "playhead.date", "equals": "2018-01-03" }
+          ]
+        },
+        {
+          "type": "click",
+          "target": { "view": "main", "anchor": "control:play" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "interaction.playing", "equals": false },
+            { "path": "playhead.index", "equals": 1 }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": ".ts-conformance-playback-announcement"
+              },
+              "property": "text",
+              "includes": "Playback paused"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Apache ECharts dynamic data",
+    "url": "https://echarts.apache.org/examples/en/editor.html?c=dynamic-data2"
+  },
+  "ai": {
+    "create": "Create a controlled UTC chart of observed AAPL closes with the first-party handleX behavior bound to observed dates, a visible playhead, play and pause control, keyboard support, and live frame status.",
+    "maintain": "Keep the playback clock and transport controls in the application, let handleX own final-scale placement, irregular-date snapping, direct manipulation, cancellation, and slider semantics, and preserve the semantic frame across catalog updates and resizes."
+  }
+}

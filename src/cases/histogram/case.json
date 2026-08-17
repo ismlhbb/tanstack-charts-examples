@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "order": 110,
+  "id": "histogram",
+  "title": "Histogram",
+  "family": "distribution",
+  "intent": "Show the distribution of automobile fuel economy using nine fixed five-mpg bins from 5 through 50.",
+  "support": "composed",
+  "features": [
+    "bin transform",
+    "rect mark",
+    "explicit thresholds",
+    "zero baseline"
+  ],
+  "geometry": [{ "role": "rect", "count": 9 }],
+  "source": {
+    "title": "Observable sample cars",
+    "url": "https://github.com/observablehq/sample-datasets/blob/732c0148de741469b2bcc03f53d93b0ad0b93f0a/cars.csv"
+  },
+  "ai": {
+    "create": "Create a histogram directly from the cars economy (mpg) field using fixed five-mpg boundaries from 5 through 50.",
+    "maintain": "Change the threshold boundaries while retaining the imported rows and keeping the Plot and TanStack transforms semantically equivalent."
+  }
+}

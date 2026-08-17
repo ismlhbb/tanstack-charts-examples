@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "echarts",
+  "order": 1060,
+  "id": "106-polar-line",
+  "title": "Seattle daily high-temperature polar line",
+  "family": "polar",
+  "intent": "Follow Seattle's observed daily high temperatures through one calendar year.",
+  "support": "native",
+  "features": [
+    "NOAA Seattle weather",
+    "visible year selection",
+    "day-of-year angle transform",
+    "original temp_max field",
+    "polar coordinates",
+    "continuous angle scale",
+    "continuous radius scale",
+    "D3 radial line",
+    "circular grid",
+    "responsive radius"
+  ],
+  "geometry": [{ "role": "line", "count": 1, "maxCount": 1 }],
+  "minimumGeometrySimilarity": 0.999,
+  "source": {
+    "title": "Observable Plot Seattle weather snapshot",
+    "url": "https://github.com/observablehq/sample-datasets/blob/732c0148de741469b2bcc03f53d93b0ad0b93f0a/weather.csv"
+  },
+  "ai": {
+    "create": "Import the published Seattle weather observations, select one real year, map date to day-of-year angle, and use the source temp_max field as radius.",
+    "maintain": "Keep source rows and field names intact, preserve chronological order, explicit calendar and temperature domains, responsive center and radius, and visible year selection."
+  }
+}

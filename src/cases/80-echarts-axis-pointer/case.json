@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "echarts",
+  "order": 800,
+  "id": "80-echarts-axis-pointer",
+  "title": "Snapped axis pointer with grouped tooltip",
+  "family": "interaction",
+  "intent": "Track the nearest shared date with a vertical crosshair and compare every series in one rich tooltip.",
+  "support": "native",
+  "features": [
+    "native snapped x focus",
+    "native focus guide",
+    "native grouped tooltip",
+    "native categorical legend",
+    "semantic interaction driver",
+    "multi-series time line"
+  ],
+  "geometry": [
+    { "view": "main", "role": "line", "count": 3 },
+    { "view": "main", "role": "dot", "count": 24 }
+  ],
+  "interactionScenarios": [
+    {
+      "id": "snap-to-shared-date",
+      "steps": [
+        {
+          "type": "pointerMove",
+          "target": {
+            "view": "main",
+            "anchor": "date:2005-04-01"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "focus.date", "equals": "2005-04-01" },
+            {
+              "path": "focus.industries",
+              "includes": "Manufacturing"
+            },
+            {
+              "path": "focus.industries",
+              "includes": "Construction"
+            },
+            { "path": "focus.industries", "includes": "Finance" },
+            { "path": "focus.values", "includes": 793 },
+            { "path": "focus.values", "includes": 693 },
+            { "path": "focus.values", "includes": 255 },
+            { "path": "crosshair.visible", "equals": true },
+            { "path": "tooltip.visible", "equals": true }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": ".conformance-tooltip-grouped, [data-conformance-tooltip=\"grouped\"]"
+              },
+              "property": "visible",
+              "equals": true
+            },
+            {
+              "target": {
+                "selector": ".conformance-tooltip-grouped, [data-conformance-tooltip=\"grouped\"]"
+              },
+              "property": "text",
+              "includes": "Manufacturing"
+            },
+            {
+              "target": {
+                "selector": ".conformance-tooltip-grouped, [data-conformance-tooltip=\"grouped\"]"
+              },
+              "property": "contained",
+              "equals": true,
+              "tolerance": 1
+            }
+          ]
+        },
+        { "type": "screenshot", "name": "grouped-tooltip-open" },
+        { "type": "pointerLeave", "view": "main" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "crosshair.visible", "equals": false },
+            { "path": "tooltip.visible", "equals": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "edge-tooltip-remains-contained",
+      "steps": [
+        {
+          "type": "pointerMove",
+          "target": {
+            "view": "main",
+            "anchor": "date:2005-08-01"
+          }
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": ".conformance-tooltip-grouped, [data-conformance-tooltip=\"grouped\"]"
+              },
+              "property": "contained",
+              "equals": true,
+              "tolerance": 1
+            }
+          ]
+        },
+        {
+          "type": "touchDrag",
+          "from": {
+            "view": "main",
+            "anchor": "date:2005-08-01"
+          },
+          "to": {
+            "view": "main",
+            "anchor": "date:2005-07-01"
+          },
+          "steps": 2,
+          "cancel": true
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "crosshair.visible", "equals": false },
+            { "path": "tooltip.visible", "equals": false }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Apache ECharts axis pointer",
+    "url": "https://echarts.apache.org/handbook/en/concepts/axis/"
+  },
+  "ai": {
+    "create": "Create a three-industry UTC line chart from the industries dataset's date, industry, and unemployed fields with a snapped vertical crosshair and one rich tooltip at the nearest month.",
+    "maintain": "Change the selected industries while preserving semantic date anchors, native grouped focus, the definition-owned focus guide and tooltip, SVG accessibility, and the original observations."
+  }
+}

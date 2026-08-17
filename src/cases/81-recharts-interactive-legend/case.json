@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 810,
+  "id": "81-recharts-interactive-legend",
+  "title": "Interactive series legend",
+  "family": "interaction",
+  "intent": "Toggle individual series from a legend without changing the chart's quantitative domain.",
+  "support": "native",
+  "features": [
+    "native controlled interactive legend",
+    "post-domain series visibility",
+    "fixed domain",
+    "accessible controls"
+  ],
+  "geometry": [{ "role": "line", "count": 2 }],
+  "minimumGeometrySimilarity": 0.97,
+  "interactionScenarios": [
+    {
+      "id": "toggle-manufacturing-without-rescaling",
+      "steps": [
+        {
+          "type": "click",
+          "target": { "view": "main", "anchor": "legend:Manufacturing" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "visibleSeries", "equals": ["Construction"] },
+            { "path": "hiddenSeries", "equals": ["Manufacturing"] },
+            { "path": "renderedSeries", "equals": ["Construction"] },
+            { "path": "yDomain", "equals": [0, 900] }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "role": "button",
+                "name": "Toggle Manufacturing series",
+                "exact": true
+              },
+              "property": "attribute",
+              "attribute": "aria-pressed",
+              "equals": "false"
+            },
+            {
+              "target": {
+                "role": "button",
+                "name": "Toggle Manufacturing series",
+                "exact": true
+              },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": {
+                "role": "region",
+                "name": "Interactive unemployment series",
+                "exact": true
+              },
+              "property": "count",
+              "equals": 1
+            }
+          ]
+        },
+        { "type": "update", "revision": 1 },
+        { "type": "update", "revision": 0 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "visibleSeries", "equals": ["Construction"] },
+            { "path": "renderedSeries", "equals": ["Construction"] },
+            { "path": "yDomain", "equals": [0, 900] }
+          ]
+        },
+        {
+          "type": "click",
+          "target": { "view": "main", "anchor": "legend:Manufacturing" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            {
+              "path": "visibleSeries",
+              "equals": ["Manufacturing", "Construction"]
+            },
+            { "path": "hiddenSeries", "equals": [] },
+            {
+              "path": "renderedSeries",
+              "equals": ["Manufacturing", "Construction"]
+            },
+            { "path": "yDomain", "equals": [0, 900] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toggle-construction-with-keyboard",
+      "steps": [
+        {
+          "type": "key",
+          "key": "Enter",
+          "target": { "view": "main", "anchor": "legend:Construction" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "visibleSeries", "equals": ["Manufacturing"] },
+            { "path": "renderedSeries", "equals": ["Manufacturing"] },
+            { "path": "yDomain", "equals": [0, 900] }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "role": "button",
+                "name": "Toggle Construction series",
+                "exact": true
+              },
+              "property": "focused",
+              "equals": true
+            },
+            {
+              "target": {
+                "role": "button",
+                "name": "Toggle Construction series",
+                "exact": true
+              },
+              "property": "height",
+              "atLeast": 44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "space-toggle-retains-focus",
+      "steps": [
+        {
+          "type": "key",
+          "key": " ",
+          "target": { "view": "main", "anchor": "legend:Manufacturing" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "visibleSeries", "equals": ["Construction"] },
+            { "path": "focusedSeries", "equals": "Manufacturing" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "role": "button",
+                "name": "Toggle Manufacturing series",
+                "exact": true
+              },
+              "property": "focused",
+              "equals": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Recharts Legend API",
+    "url": "https://recharts.github.io/en-US/api/Legend/"
+  },
+  "ai": {
+    "create": "Create a two-industry unemployment chart with an accessible legend that toggles each series while retaining an explicit y domain.",
+    "maintain": "Keep one grouped line mark over the raw selected rows, stable series IDs, the full categorical and quantitative domains, and application-owned controlled visibility through the native interactive legend."
+  }
+}

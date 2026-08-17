@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "echarts",
+  "order": 920,
+  "id": "92-editable-event-range",
+  "title": "Editable event range",
+  "family": "interaction",
+  "intent": "Edit a keyed schedule event by dragging its end handle while preserving the event start, lane, and identity.",
+  "support": "native",
+  "features": [
+    "editable timeline",
+    "interval rectangle",
+    "drag handle",
+    "controlled event range",
+    "stable data keys",
+    "first-party scale handle",
+    "resolved-scale candidate snapping",
+    "native date input",
+    "keyboard editing",
+    "44 pixel hit target",
+    "cancellable edits",
+    "live duration summary",
+    "visible event labels",
+    "color-independent event identity",
+    "required date validation"
+  ],
+  "geometry": [
+    { "id": "event-ranges", "view": "main", "role": "rect", "count": 4 },
+    { "id": "event-end-handle", "view": "main", "role": "dot", "count": 1 },
+    { "id": "event-edit-track", "view": "main", "role": "rule", "count": 1 }
+  ],
+  "minimumGeometrySimilarity": 0.995,
+  "guideAssertions": [
+    {
+      "id": "lane-sequence",
+      "axis": "y",
+      "sequence": ["Product", "Design", "Marketing", "Engineering"]
+    }
+  ],
+  "interactionScenarios": [
+    {
+      "id": "extend-release-window",
+      "steps": [
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "editor.id", "equals": "release" },
+            { "path": "editor.start", "equals": "2025-02-03" },
+            { "path": "editor.end", "equals": "2025-02-12" },
+            { "path": "editor.durationDays", "approx": 9, "tolerance": 0 },
+            {
+              "path": "events.ids",
+              "equals": ["discovery", "design", "campaign", "release"]
+            }
+          ]
+        },
+        {
+          "type": "drag",
+          "from": { "view": "main", "anchor": "event:release:end" },
+          "to": { "view": "main", "anchor": "date:2025-02-21" },
+          "steps": 14
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "editor.id", "equals": "release" },
+            { "path": "editor.start", "equals": "2025-02-03" },
+            { "path": "editor.end", "equals": "2025-02-21" },
+            { "path": "editor.durationDays", "approx": 18, "tolerance": 0 },
+            { "path": "editor.editing", "equals": false },
+            { "path": "editor.editCount", "equals": 1 },
+            {
+              "path": "events.ids",
+              "equals": ["discovery", "design", "campaign", "release"]
+            }
+          ]
+        },
+        { "type": "update", "revision": 1 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "editor.id", "equals": "release" },
+            { "path": "editor.start", "equals": "2025-02-03" },
+            { "path": "editor.end", "equals": "2025-02-21" },
+            { "path": "editor.durationDays", "approx": 18, "tolerance": 0 },
+            { "path": "editor.editing", "equals": false },
+            { "path": "editor.editCount", "equals": 1 },
+            { "path": "events.designEnd", "equals": "2025-01-26" },
+            { "path": "events.campaignStart", "equals": "2025-01-19" },
+            {
+              "path": "events.ids",
+              "equals": ["discovery", "design", "campaign", "release"]
+            }
+          ]
+        },
+        { "type": "update", "revision": 0 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "editor.id", "equals": "release" },
+            { "path": "editor.start", "equals": "2025-02-03" },
+            { "path": "editor.end", "equals": "2025-02-21" },
+            { "path": "editor.durationDays", "approx": 18, "tolerance": 0 },
+            { "path": "editor.editing", "equals": false },
+            { "path": "editor.editCount", "equals": 1 },
+            { "path": "events.designEnd", "equals": "2025-01-24" },
+            { "path": "events.campaignStart", "equals": "2025-01-20" },
+            {
+              "path": "events.ids",
+              "equals": ["discovery", "design", "campaign", "release"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shorten-release-window",
+      "steps": [
+        {
+          "type": "pointerDown",
+          "target": { "view": "main", "anchor": "event:release:end" }
+        },
+        {
+          "type": "pointerMove",
+          "target": { "view": "main", "anchor": "date:2025-02-07" },
+          "steps": 10
+        },
+        {
+          "type": "pointerUp",
+          "target": { "view": "main", "anchor": "date:2025-02-07" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "editor.start", "equals": "2025-02-03" },
+            { "path": "editor.end", "equals": "2025-02-07" },
+            { "path": "editor.durationDays", "approx": 4, "tolerance": 0 },
+            { "path": "editor.editing", "equals": false },
+            { "path": "editor.editCount", "equals": 1 },
+            {
+              "path": "events.ids",
+              "equals": ["discovery", "design", "campaign", "release"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard-extend-release-window",
+      "steps": [
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "role": "slider",
+                "name": "Release end handle"
+              },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": { "selector": ".ts-conformance-event-date" },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": { "selector": ".ts-conformance-event-date" },
+              "property": "visible",
+              "equals": true
+            },
+            {
+              "target": { "selector": ".ts-conformance-event-date" },
+              "property": "attribute",
+              "attribute": "required",
+              "equals": ""
+            },
+            {
+              "target": { "selector": ".ts-conformance-event-date" },
+              "property": "attribute",
+              "attribute": "aria-invalid",
+              "equals": "false"
+            },
+            {
+              "target": {
+                "selector": "[data-chart-handle=\"release-end\"]"
+              },
+              "property": "width",
+              "equals": 20
+            },
+            {
+              "target": {
+                "selector": "[data-chart-handle=\"release-end\"]"
+              },
+              "property": "height",
+              "equals": 20
+            },
+            {
+              "target": {
+                "selector": "[data-chart-handle-track=\"release-end\"]"
+              },
+              "property": "height",
+              "equals": 4
+            },
+            {
+              "target": { "selector": ".ts-conformance-event-toolbar" },
+              "property": "contained",
+              "within": { "root": true },
+              "equals": true
+            },
+            {
+              "target": {
+                "selector": ".ts-conformance-event-identities li"
+              },
+              "property": "count",
+              "equals": 4
+            },
+            {
+              "target": {
+                "selector": ".ts-conformance-event-identities li",
+                "index": 0
+              },
+              "property": "text",
+              "includes": "Discovery"
+            }
+          ]
+        },
+        {
+          "type": "key",
+          "key": "ArrowRight",
+          "target": { "view": "main", "anchor": "event:release:end" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "editor.end", "equals": "2025-02-13" },
+            { "path": "editor.durationDays", "approx": 10, "tolerance": 0 },
+            { "path": "editor.editCount", "equals": 1 },
+            { "path": "editor.editing", "equals": false }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "role": "slider",
+                "name": "Release end handle"
+              },
+              "property": "focused",
+              "equals": true
+            },
+            {
+              "target": { "role": "status" },
+              "property": "text",
+              "includes": "Feb 13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cancel-release-edit",
+      "steps": [
+        {
+          "type": "pointerDown",
+          "target": { "view": "main", "anchor": "event:release:end" }
+        },
+        {
+          "type": "pointerMove",
+          "target": { "view": "main", "anchor": "date:2025-02-21" },
+          "steps": 8
+        },
+        { "type": "pointerCancel" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "editor.end", "equals": "2025-02-12" },
+            { "path": "editor.durationDays", "approx": 9, "tolerance": 0 },
+            { "path": "editor.editing", "equals": false },
+            { "path": "editor.editCount", "equals": 0 }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "role": "status" },
+              "property": "text",
+              "includes": "Feb 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reject-cleared-date",
+      "steps": [
+        {
+          "type": "key",
+          "key": "Control+A",
+          "target": { "view": "main", "anchor": "control:date" }
+        },
+        {
+          "type": "key",
+          "key": "Backspace",
+          "target": { "view": "main", "anchor": "control:date" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "editor.end", "equals": "2025-02-12" },
+            { "path": "editor.durationDays", "approx": 9, "tolerance": 0 },
+            { "path": "editor.editing", "equals": false },
+            { "path": "editor.editCount", "equals": 0 }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "selector": ".ts-conformance-event-date" },
+              "property": "attribute",
+              "attribute": "aria-invalid",
+              "equals": "true"
+            },
+            {
+              "target": { "selector": ".ts-conformance-event-validation" },
+              "property": "text",
+              "includes": "Choose a release end date"
+            },
+            {
+              "target": { "role": "status" },
+              "property": "text",
+              "includes": "9 days"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Apache ECharts custom series",
+    "url": "https://echarts.apache.org/handbook/en/how-to/chart-types/custom-series/"
+  },
+  "ai": {
+    "create": "Create a keyed resource schedule with interval rectangles, the first-party handleX behavior aligned to the release lane, a date input, keyboard editing, and a live duration summary.",
+    "maintain": "Keep scale-resolved placement, candidate snapping, direct manipulation, cancellation, and slider semantics in handleX; keep event IDs, date constraints, validation, and duration status in application-owned state."
+  }
+}

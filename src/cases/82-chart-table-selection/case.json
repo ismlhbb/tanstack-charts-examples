@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "recharts",
+  "order": 820,
+  "id": "82-chart-table-selection",
+  "title": "Linked chart and data table selection",
+  "family": "interaction",
+  "intent": "Select a plotted observation and highlight its matching row in an accessible data table.",
+  "support": "composed",
+  "features": [
+    "native controlled keyed selection",
+    "linked semantic HTML table",
+    "decorative selected mark",
+    "accessible application state"
+  ],
+  "geometry": [{ "role": "dot", "count": 5 }],
+  "interactionScenarios": [
+    {
+      "id": "select-adelie-dream-observation",
+      "steps": [
+        {
+          "type": "click",
+          "target": {
+            "view": "main",
+            "anchor": "point:adelie-dream-female"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selectedId", "equals": "adelie-dream-female" },
+            { "path": "selectedRow", "equals": "adelie-dream-female" },
+            { "path": "selectedValue", "equals": 3250 },
+            { "path": "selectedOverlayCount", "equals": 1 }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-selected-overlay], .ts-chart__dot[data-ts-key=\"selected-observation\"] circle"
+              },
+              "property": "count",
+              "equals": 1
+            },
+            {
+              "target": {
+                "selector": "[data-selected-overlay], .ts-chart__dot[data-ts-key=\"selected-observation\"] circle"
+              },
+              "property": "attribute",
+              "attribute": "fill",
+              "equals": "#f97316"
+            },
+            {
+              "target": {
+                "role": "region",
+                "name": "Selectable observations with data table",
+                "exact": true
+              },
+              "property": "count",
+              "equals": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "move-selection-between-points",
+      "steps": [
+        {
+          "type": "click",
+          "target": {
+            "view": "main",
+            "anchor": "point:adelie-torgersen-male"
+          }
+        },
+        {
+          "type": "click",
+          "target": {
+            "view": "main",
+            "anchor": "point:chinstrap-dream-male"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selectedId", "equals": "chinstrap-dream-male" },
+            { "path": "selectedRow", "equals": "chinstrap-dream-male" },
+            { "path": "selectedValue", "equals": 3900 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "select-from-table-with-keyboard",
+      "steps": [
+        {
+          "type": "key",
+          "key": "Enter",
+          "target": {
+            "view": "main",
+            "anchor": "row:adelie-biscoe-female"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selectedId", "equals": "adelie-biscoe-female" },
+            { "path": "selectedRow", "equals": "adelie-biscoe-female" },
+            { "path": "focusedRow", "equals": "adelie-biscoe-female" },
+            {
+              "path": "announcement",
+              "includes": "Selected Adelie female on Biscoe"
+            }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "role": "button",
+                "name": "Adelie female on Biscoe",
+                "exact": true
+              },
+              "property": "focused",
+              "equals": true
+            },
+            {
+              "target": {
+                "role": "button",
+                "name": "Adelie female on Biscoe",
+                "exact": true
+              },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": {
+                "selector": "[data-row-id=\"adelie-biscoe-female\"]"
+              },
+              "property": "attribute",
+              "attribute": "aria-selected",
+              "equals": "true"
+            }
+          ]
+        },
+        { "type": "update", "revision": 1 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selectedId", "equals": "adelie-biscoe-female" },
+            { "path": "selectedValue", "equals": 3400 },
+            { "path": "focusedRow", "equals": "adelie-biscoe-female" },
+            {
+              "path": "announcement",
+              "equals": "Selected Adelie female on Biscoe: 3,400 g"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clear-selection-retains-control-focus",
+      "steps": [
+        {
+          "type": "click",
+          "target": {
+            "view": "main",
+            "anchor": "point:adelie-torgersen-male"
+          }
+        },
+        {
+          "type": "click",
+          "target": {
+            "view": "main",
+            "anchor": "control:clear-selection"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selectedId", "equals": null },
+            { "path": "selectedRow", "equals": null },
+            { "path": "selectedOverlayCount", "equals": 0 },
+            { "path": "focusedControl", "equals": "clear-selection" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "role": "button",
+                "name": "Clear selection",
+                "exact": true
+              },
+              "property": "focused",
+              "equals": true
+            },
+            {
+              "target": {
+                "role": "button",
+                "name": "Clear selection",
+                "exact": true
+              },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": {
+                "role": "button",
+                "name": "Clear selection",
+                "exact": true
+              },
+              "property": "attribute",
+              "attribute": "aria-disabled",
+              "equals": "true"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Recharts Scatter API",
+    "url": "https://recharts.github.io/en-US/api/Scatter/"
+  },
+  "ai": {
+    "create": "Create a penguin measurement chart linked to an accessible table so selecting a point highlights the corresponding row.",
+    "maintain": "Keep one raw observation dataset, stable semantic keys, controlled selection, and the decorative selected mark in the definition. Retain the semantic HTML table, status announcement, clear action, representative-row policy, and persistence in the application shell."
+  }
+}

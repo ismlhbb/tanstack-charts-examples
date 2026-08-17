@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "order": 210,
+  "id": "20-normalized-stacked-area",
+  "title": "Industry share of unemployment",
+  "family": "composition",
+  "intent": "Compare every industry's share of monthly unemployment using a normalized stack from the original imported observations.",
+  "support": "composed",
+  "features": [
+    "area",
+    "normalized stack",
+    "100 percent composition",
+    "native stack layout",
+    "percent axis"
+  ],
+  "geometry": [
+    { "role": "area", "count": 14 },
+    { "role": "rule", "count": 1 }
+  ],
+  "source": {
+    "title": "Observable Plot stack transform",
+    "url": "https://observablehq.com/plot/transforms/stack"
+  },
+  "ai": {
+    "create": "Create a responsive normalized UTC area chart from the industries dataset's original date, industry, and unemployed fields using each library's native normalize offset.",
+    "maintain": "Change the industry order while keeping each month normalized to 100%, colors stable, the percent guide accurate, and the imported rows untouched."
+  }
+}

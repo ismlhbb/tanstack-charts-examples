@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "echarts",
+  "order": 890,
+  "id": "89-brush-range-selection",
+  "title": "Observed monthly AAPL brush selection",
+  "family": "interaction",
+  "intent": "Select AAPL monthly closes with a direct horizontal drag that snaps both boundaries to observed trading dates.",
+  "support": "native",
+  "features": [
+    "observed-month UTC brush",
+    "real pointer drag",
+    "normalized reverse selection",
+    "definition-owned selection overlay",
+    "resolved-scale candidate snapping",
+    "controlled semantic range",
+    "first-party brush behavior",
+    "touch cancellation",
+    "keyboard-adjustable semantic handles",
+    "live range summary"
+  ],
+  "geometry": [
+    { "id": "series-line", "view": "main", "role": "line", "count": 1 },
+    { "id": "series-points", "view": "main", "role": "dot", "count": 12 },
+    { "id": "selection-band", "view": "main", "role": "rect", "count": 1 }
+  ],
+  "minimumGeometrySimilarity": 0.98,
+  "interactionScenarios": [
+    {
+      "id": "brush-forward",
+      "steps": [
+        {
+          "type": "drag",
+          "from": { "view": "main", "anchor": "date:2017-03-31" },
+          "to": { "view": "main", "anchor": "date:2017-07-31" },
+          "steps": 12
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selection.start", "equals": "2017-03-31" },
+            { "path": "selection.end", "equals": "2017-07-31" },
+            { "path": "selection.pointCount", "equals": 5 },
+            { "path": "selection.dragging", "equals": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brush-reverse",
+      "steps": [
+        {
+          "type": "drag",
+          "from": { "view": "main", "anchor": "date:2017-08-31" },
+          "to": { "view": "main", "anchor": "date:2017-05-31" },
+          "steps": 12
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selection.start", "equals": "2017-05-31" },
+            { "path": "selection.end", "equals": "2017-08-31" },
+            { "path": "selection.pointCount", "equals": 4 },
+            { "path": "selection.dragging", "equals": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semantic-handle-keyboard",
+      "steps": [
+        { "type": "update", "revision": 0 },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-view=\"main\"]"
+              },
+              "property": "attribute",
+              "attribute": "role",
+              "equals": "application"
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-view=\"main\"][role=\"img\"]"
+              },
+              "property": "count",
+              "equals": 0
+            },
+            {
+              "target": { "role": "slider", "name": "Range start" },
+              "property": "attribute",
+              "attribute": "aria-orientation",
+              "equals": "horizontal"
+            },
+            {
+              "target": { "role": "slider", "name": "Range start" },
+              "property": "attribute",
+              "attribute": "aria-valuemin",
+              "equals": "0"
+            },
+            {
+              "target": { "role": "slider", "name": "Range start" },
+              "property": "attribute",
+              "attribute": "aria-valuemax",
+              "equals": "5"
+            },
+            {
+              "target": { "role": "slider", "name": "Range end" },
+              "property": "attribute",
+              "attribute": "aria-valuemin",
+              "equals": "3"
+            },
+            {
+              "target": { "role": "slider", "name": "Range end" },
+              "property": "attribute",
+              "attribute": "aria-valuemax",
+              "equals": "11"
+            },
+            {
+              "target": { "role": "status" },
+              "property": "text",
+              "includes": "avg $146.8"
+            }
+          ]
+        },
+        {
+          "type": "key",
+          "key": "ArrowRight",
+          "target": { "view": "main", "anchor": "handle:end" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selection.start", "equals": "2017-04-28" },
+            { "path": "selection.end", "equals": "2017-07-31" },
+            { "path": "selection.pointCount", "equals": 4 },
+            {
+              "path": "selection.closeChange",
+              "approx": 5.080002,
+              "tolerance": 0.000001
+            },
+            { "path": "selection.dragging", "equals": false }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "role": "slider", "name": "Range end" },
+              "property": "focused",
+              "equals": true
+            },
+            {
+              "target": { "role": "slider", "name": "Range end" },
+              "property": "attribute",
+              "attribute": "aria-valuetext",
+              "equals": "2017-07-31"
+            },
+            {
+              "target": { "role": "status" },
+              "property": "text",
+              "includes": "avg $147.3"
+            }
+          ]
+        },
+        { "type": "screenshot", "name": "monthly-brush-handle-focus" },
+        {
+          "type": "key",
+          "key": "Home",
+          "target": { "view": "main", "anchor": "handle:end" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selection.start", "equals": "2017-04-28" },
+            { "path": "selection.end", "equals": "2017-04-28" },
+            { "path": "selection.pointCount", "equals": 1 }
+          ]
+        },
+        {
+          "type": "key",
+          "key": "End",
+          "target": { "view": "main", "anchor": "handle:end" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selection.start", "equals": "2017-04-28" },
+            { "path": "selection.end", "equals": "2017-12-29" },
+            { "path": "selection.pointCount", "equals": 9 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pointer-cancel-rolls-back",
+      "steps": [
+        {
+          "type": "pointerDown",
+          "target": { "view": "main", "anchor": "date:2017-03-31" }
+        },
+        {
+          "type": "pointerMove",
+          "target": { "view": "main", "anchor": "date:2017-08-31" },
+          "steps": 8
+        },
+        { "type": "pointerCancel" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selection.start", "equals": "2017-04-28" },
+            { "path": "selection.end", "equals": "2017-06-30" },
+            { "path": "selection.pointCount", "equals": 3 },
+            { "path": "selection.dragging", "equals": false }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "role": "status" },
+              "property": "text",
+              "includes": "Apr 28 → Jun 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "touch-cancel-rolls-back",
+      "steps": [
+        {
+          "type": "touchDrag",
+          "from": { "view": "main", "anchor": "date:2017-03-31" },
+          "to": { "view": "main", "anchor": "date:2017-08-31" },
+          "steps": 8,
+          "cancel": true
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "selection.start", "equals": "2017-04-28" },
+            { "path": "selection.end", "equals": "2017-06-30" },
+            { "path": "selection.pointCount", "equals": 3 },
+            { "path": "selection.dragging", "equals": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "catalog-update-preserves-live-summary",
+      "steps": [
+        { "type": "update", "revision": 1 },
+        {
+          "type": "assert",
+          "assertions": [
+            {
+              "path": "selection.closeChange",
+              "approx": 0.37001,
+              "tolerance": 0.000001
+            },
+            {
+              "path": "selection.closeAverage",
+              "approx": 146.8099976667,
+              "tolerance": 0.000001
+            }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "role": "status" },
+              "property": "text",
+              "includes": "avg $146.8"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Apache ECharts brush selection",
+    "url": "https://echarts.apache.org/handbook/en/interaction/brush/"
+  },
+  "ai": {
+    "create": "Create a UTC chart of monthly AAPL closes with the first-party horizontal brush behavior, observed-date snapping, two semantic slider handles, touch cancellation, and a live range summary.",
+    "maintain": "Keep the semantic range controlled by the application, let the brush behavior own resolved-scale mapping, snapping, painting, handles, and gesture lifecycle, and keep the range summary outside the renderer."
+  }
+}

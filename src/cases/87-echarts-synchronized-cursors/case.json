@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "echarts",
+  "order": 870,
+  "id": "87-echarts-synchronized-cursors",
+  "title": "Synchronized cursors across views",
+  "family": "interaction",
+  "intent": "Track one semantic date across current and previous U.S. airport traveler views with independent quantitative domains.",
+  "support": "native",
+  "features": [
+    "definition-owned synchronized cursors",
+    "coordinated view grid",
+    "shared x scale",
+    "semantic date state",
+    "independent y domains",
+    "native focus guides",
+    "decorative line layers",
+    "shared value summary",
+    "keyboard cursor navigation",
+    "native tap-to-pin cursor"
+  ],
+  "geometry": [
+    {
+      "id": "current-line",
+      "view": "current",
+      "role": "line",
+      "count": 1
+    },
+    {
+      "id": "current-dots",
+      "view": "current",
+      "role": "dot",
+      "count": 8
+    },
+    {
+      "id": "previous-line",
+      "view": "previous",
+      "role": "line",
+      "count": 1
+    },
+    {
+      "id": "previous-dots",
+      "view": "previous",
+      "role": "dot",
+      "count": 8
+    }
+  ],
+  "minimumGeometrySimilarity": 0.995,
+  "interactionScenarios": [
+    {
+      "id": "share-date-across-both-views",
+      "steps": [
+        {
+          "type": "pointerMove",
+          "target": {
+            "view": "current",
+            "anchor": "date:2020-12-13T11:00:00.000Z"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "shared.date", "equals": "2020-12-13" },
+            { "path": "shared.currentValue", "equals": 865014 },
+            { "path": "shared.previousValue", "equals": 2300248 },
+            { "path": "shared.pinned", "equals": false },
+            { "path": "crosshairs.aligned", "equals": true },
+            { "path": "crosshairs.current.visible", "equals": true },
+            { "path": "crosshairs.previous.visible", "equals": true }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-synchronized-date]"
+              },
+              "property": "text",
+              "includes": "Dec 13"
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-synchronized-current]"
+              },
+              "property": "text",
+              "equals": "865,014"
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-synchronized-previous]"
+              },
+              "property": "text",
+              "equals": "2,300,248"
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-synchronized-summary]"
+              },
+              "property": "text",
+              "includes": "2020 travelers"
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-synchronized-summary]"
+              },
+              "property": "text",
+              "includes": "2019 travelers"
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-synchronized-summary]"
+              },
+              "property": "attribute",
+              "attribute": "aria-live",
+              "equals": "polite"
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-synchronized-summary]"
+              },
+              "property": "attribute",
+              "attribute": "aria-atomic",
+              "equals": "true"
+            },
+            {
+              "target": { "role": "status" },
+              "property": "count",
+              "equals": 1
+            }
+          ]
+        },
+        { "type": "screenshot", "name": "linked-cursor-values" },
+        { "type": "update", "revision": 1 },
+        { "type": "update", "revision": 0 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "shared.date", "equals": "2020-12-13" },
+            { "path": "crosshairs.aligned", "equals": true },
+            { "path": "crosshairs.current.visible", "equals": true },
+            { "path": "crosshairs.previous.visible", "equals": true }
+          ]
+        },
+        { "type": "pointerLeave", "view": "current" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "shared.date", "equals": null },
+            { "path": "crosshairs.current.visible", "equals": false },
+            { "path": "crosshairs.previous.visible", "equals": false }
+          ]
+        },
+        {
+          "type": "pointerMove",
+          "target": {
+            "view": "current",
+            "anchor": "date:2020-12-13T11:00:00.000Z"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "shared.date", "equals": "2020-12-13" },
+            { "path": "crosshairs.current.visible", "equals": true },
+            { "path": "crosshairs.previous.visible", "equals": true }
+          ]
+        },
+        {
+          "type": "key",
+          "key": "ArrowRight",
+          "target": {
+            "view": "current",
+            "anchor": "date:2020-12-13T11:00:00.000Z"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "shared.date", "equals": "2020-12-14" },
+            { "path": "shared.currentValue", "equals": 752451 },
+            { "path": "shared.previousValue", "equals": 2250386 }
+          ]
+        },
+        {
+          "type": "click",
+          "target": {
+            "view": "previous",
+            "anchor": "date:2020-12-15"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "shared.date", "equals": "2020-12-15" },
+            { "path": "shared.pinned", "equals": true },
+            { "path": "crosshairs.current.visible", "equals": true },
+            { "path": "crosshairs.previous.visible", "equals": true }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-synchronized-date]"
+              },
+              "property": "text",
+              "includes": "pinned"
+            }
+          ]
+        },
+        { "type": "pointerLeave", "view": "previous" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "shared.date", "equals": "2020-12-15" },
+            { "path": "shared.pinned", "equals": true }
+          ]
+        },
+        { "type": "key", "key": "Escape" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "shared.date", "equals": null },
+            { "path": "shared.pinned", "equals": false },
+            { "path": "crosshairs.current.visible", "equals": false },
+            { "path": "crosshairs.previous.visible", "equals": false }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-synchronized-date]"
+              },
+              "property": "text",
+              "includes": "Focus either chart"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Apache ECharts linked axis pointers",
+    "url": "https://echarts.apache.org/handbook/en/concepts/axis/"
+  },
+  "ai": {
+    "create": "Create two vertically aligned current and previous traveler-count views with distinct y domains and a cursor linked by exact semantic date rather than shared pixel coordinates.",
+    "maintain": "Keep source dates as row identity, group points by view, and let one view-grid definition own linked focus guides and pinning while the semantic summary only observes native focus changes."
+  }
+}

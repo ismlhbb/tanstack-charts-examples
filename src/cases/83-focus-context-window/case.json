@@ -1,0 +1,433 @@
+{
+  "schemaVersion": 1,
+  "order": 830,
+  "id": "83-focus-context-window",
+  "title": "Focus and context time window",
+  "family": "interaction",
+  "intent": "Use a compact overview to choose the explicit time domain shown by a larger detail chart.",
+  "support": "composed",
+  "features": [
+    "focus plus context",
+    "linked views",
+    "definition-owned horizontal brush",
+    "explicit shared domain",
+    "semantic click targets",
+    "persistent viewport"
+  ],
+  "geometry": [
+    {
+      "id": "detail-line",
+      "view": "detail",
+      "role": "line",
+      "count": 1
+    },
+    {
+      "id": "overview-line",
+      "view": "overview",
+      "role": "line",
+      "count": 1
+    }
+  ],
+  "interactionScenarios": [
+    {
+      "id": "move-window-late",
+      "steps": [
+        {
+          "type": "click",
+          "target": {
+            "view": "overview",
+            "anchor": "date:2017-10-31"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "window.selected", "equals": "2017-10-31" },
+            { "path": "window.start", "equals": "2017-09-29" },
+            { "path": "window.end", "equals": "2017-12-29" },
+            { "path": "detail.pointCount", "equals": 4 }
+          ]
+        },
+        { "type": "update", "revision": 1 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "window.selected", "equals": "2017-10-31" },
+            { "path": "window.start", "equals": "2017-09-29" },
+            { "path": "window.end", "equals": "2017-12-29" },
+            { "path": "detail.pointCount", "equals": 4 },
+            { "path": "detail.selectedValue", "equals": 169.039993 }
+          ]
+        },
+        { "type": "update", "revision": 0 },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "window.selected", "equals": "2017-10-31" },
+            { "path": "window.start", "equals": "2017-09-29" },
+            { "path": "window.end", "equals": "2017-12-29" },
+            { "path": "detail.pointCount", "equals": 4 },
+            { "path": "detail.selectedValue", "equals": 169.039993 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "move-window-early",
+      "steps": [
+        {
+          "type": "click",
+          "target": {
+            "view": "overview",
+            "anchor": "date:2017-03-31"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "window.selected", "equals": "2017-03-31" },
+            { "path": "window.start", "equals": "2017-02-28" },
+            { "path": "window.end", "equals": "2017-05-31" },
+            { "path": "detail.pointCount", "equals": 4 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drag-brush-with-pointer",
+      "steps": [
+        {
+          "type": "pointerDown",
+          "target": {
+            "view": "overview",
+            "anchor": "date:2017-02-28"
+          }
+        },
+        {
+          "type": "pointerMove",
+          "target": {
+            "view": "overview",
+            "anchor": "date:2017-04-28"
+          },
+          "steps": 8
+        },
+        {
+          "type": "pointerUp",
+          "target": {
+            "view": "overview",
+            "anchor": "date:2017-04-28"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "window.selected", "equals": "2017-03-31" },
+            { "path": "window.start", "equals": "2017-02-28" },
+            { "path": "window.end", "equals": "2017-05-31" },
+            { "path": "detail.pointCount", "equals": 4 },
+            { "path": "brush.dragging", "equals": false },
+            { "path": "brush.outcome", "equals": "commit" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-chart-brush=\"focus-window\"] .selection"
+              },
+              "property": "visible",
+              "equals": true
+            },
+            {
+              "target": {
+                "selector": "[data-chart-brush=\"focus-window\"] .selection"
+              },
+              "property": "width",
+              "atLeast": 40
+            },
+            {
+              "target": {
+                "selector": "[data-chart-brush=\"focus-window\"] .selection"
+              },
+              "property": "contained",
+              "equals": true,
+              "within": {
+                "selector": "[data-conformance-view=\"overview\"]"
+              },
+              "tolerance": 1
+            },
+            {
+              "target": {
+                "selector": "[data-chart-brush=\"focus-window\"] .handle"
+              },
+              "property": "count",
+              "equals": 2
+            },
+            {
+              "target": { "selector": "[data-focus-range]" },
+              "property": "text",
+              "equals": "Feb 2017 – May 2017"
+            }
+          ]
+        },
+        { "type": "screenshot", "name": "pointer-brush-window" }
+      ]
+    },
+    {
+      "id": "drag-brush-with-touch",
+      "steps": [
+        {
+          "type": "touchDrag",
+          "from": {
+            "view": "overview",
+            "anchor": "date:2017-09-29"
+          },
+          "to": {
+            "view": "overview",
+            "anchor": "date:2017-11-30"
+          },
+          "steps": 8
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "window.selected", "equals": "2017-10-31" },
+            { "path": "window.start", "equals": "2017-09-29" },
+            { "path": "window.end", "equals": "2017-12-29" },
+            { "path": "detail.pointCount", "equals": 4 },
+            { "path": "brush.dragging", "equals": false },
+            { "path": "brush.outcome", "equals": "commit" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-chart-brush=\"focus-window\"] .selection"
+              },
+              "property": "visible",
+              "equals": true
+            },
+            {
+              "target": {
+                "selector": "[data-chart-brush=\"focus-window\"] .selection"
+              },
+              "property": "contained",
+              "equals": true,
+              "within": {
+                "selector": "[data-conformance-view=\"overview\"]"
+              },
+              "tolerance": 1
+            },
+            {
+              "target": { "selector": "[data-focus-range]" },
+              "property": "text",
+              "equals": "Sep 2017 – Dec 2017"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pointer-cancel-restores-window",
+      "steps": [
+        {
+          "type": "pointerDown",
+          "target": {
+            "view": "overview",
+            "anchor": "date:2017-02-28"
+          }
+        },
+        {
+          "type": "pointerMove",
+          "target": {
+            "view": "overview",
+            "anchor": "date:2017-11-30"
+          },
+          "steps": 8
+        },
+        { "type": "pointerCancel" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "window.selected", "equals": "2017-06-30" },
+            { "path": "window.start", "equals": "2017-05-31" },
+            { "path": "window.end", "equals": "2017-08-31" },
+            { "path": "detail.pointCount", "equals": 4 },
+            { "path": "brush.dragging", "equals": false },
+            { "path": "brush.outcome", "equals": "cancel" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-chart-brush=\"focus-window\"] .selection"
+              },
+              "property": "visible",
+              "equals": true
+            },
+            {
+              "target": {
+                "selector": "[data-chart-brush=\"focus-window\"] .selection"
+              },
+              "property": "contained",
+              "equals": true,
+              "within": {
+                "selector": "[data-conformance-view=\"overview\"]"
+              },
+              "tolerance": 1
+            },
+            {
+              "target": { "selector": "[data-focus-range]" },
+              "property": "text",
+              "equals": "May 2017 – Aug 2017"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "touch-cancel-restores-window",
+      "steps": [
+        {
+          "type": "touchDrag",
+          "from": {
+            "view": "overview",
+            "anchor": "date:2017-02-28"
+          },
+          "to": {
+            "view": "overview",
+            "anchor": "date:2017-11-30"
+          },
+          "steps": 8,
+          "cancel": true
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "window.selected", "equals": "2017-06-30" },
+            { "path": "window.start", "equals": "2017-05-31" },
+            { "path": "window.end", "equals": "2017-08-31" },
+            { "path": "detail.pointCount", "equals": 4 },
+            { "path": "brush.dragging", "equals": false },
+            { "path": "brush.outcome", "equals": "cancel" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-chart-brush=\"focus-window\"] .selection"
+              },
+              "property": "contained",
+              "equals": true,
+              "within": {
+                "selector": "[data-conformance-view=\"overview\"]"
+              },
+              "tolerance": 1
+            },
+            {
+              "target": { "selector": "[data-focus-range]" },
+              "property": "text",
+              "equals": "May 2017 – Aug 2017"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "move-window-with-semantic-control",
+      "steps": [
+        {
+          "type": "key",
+          "key": "End",
+          "target": {
+            "view": "overview",
+            "anchor": "control:selected-month"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "window.selected", "equals": "2017-12-29" },
+            { "path": "window.start", "equals": "2017-09-29" },
+            { "path": "window.end", "equals": "2017-12-29" },
+            { "path": "control.value", "equals": 11 },
+            {
+              "path": "control.label",
+              "equals": "Sep 2017 – Dec 2017"
+            }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "role": "slider",
+                "name": "Selected month",
+                "exact": true
+              },
+              "property": "focused",
+              "equals": true
+            },
+            {
+              "target": {
+                "role": "slider",
+                "name": "Selected month",
+                "exact": true
+              },
+              "property": "height",
+              "atLeast": 44
+            },
+            {
+              "target": {
+                "role": "slider",
+                "name": "Selected month",
+                "exact": true
+              },
+              "property": "contained",
+              "equals": true,
+              "within": {
+                "selector": "[data-focus-controls]"
+              }
+            },
+            {
+              "target": { "selector": "[data-focus-controls]" },
+              "property": "contained",
+              "equals": true
+            },
+            {
+              "target": { "selector": "[data-focus-controls]" },
+              "property": "height",
+              "atLeast": 52
+            },
+            {
+              "target": { "selector": "[data-chart-brush=\"focus-window\"]" },
+              "property": "contained",
+              "equals": true,
+              "within": {
+                "selector": "[data-conformance-view=\"overview\"]"
+              },
+              "tolerance": 1
+            }
+          ]
+        },
+        { "type": "screenshot", "name": "semantic-window-control" }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Observable Plot temporal scales",
+    "url": "https://observablehq.com/plot/features/scales"
+  },
+  "ai": {
+    "create": "Create linked detail and overview views of monthly AAPL closes where an overview click selects a stable observed date and updates an explicit four-month detail domain.",
+    "maintain": "Keep the selected date and window as application state, preserve them across catalog updates and resizes, and resolve test targets through chart coordinates rather than DOM order."
+  }
+}

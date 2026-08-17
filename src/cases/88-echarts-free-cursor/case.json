@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "echarts",
+  "order": 880,
+  "id": "88-echarts-free-cursor",
+  "title": "Free cursor over car measurements",
+  "family": "interaction",
+  "intent": "Track an unconstrained x and y plot position without snapping to the nearest datum.",
+  "support": "native",
+  "features": [
+    "free cursor",
+    "two-dimensional crosshair",
+    "controlled semantic position",
+    "semantic fractional target",
+    "continuous cursor behavior",
+    "definition-owned coordinate labels",
+    "paired semantic sliders",
+    "tap-to-pin cursor"
+  ],
+  "geometry": [
+    {
+      "id": "free-cursor-line",
+      "view": "main",
+      "role": "line",
+      "count": 1
+    },
+    {
+      "id": "free-cursor-dots",
+      "view": "main",
+      "role": "dot",
+      "count": 6
+    }
+  ],
+  "minimumGeometrySimilarity": 0.995,
+  "guideAssertions": [
+    {
+      "id": "value-sequence",
+      "axis": "y",
+      "sequence": ["10", "15", "20", "25", "30", "35", "40"]
+    }
+  ],
+  "interactionScenarios": [
+    {
+      "id": "track-fractional-plot-position",
+      "steps": [
+        {
+          "type": "pointerMove",
+          "target": {
+            "view": "main",
+            "anchor": "fraction:0.37,0.64"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "cursor.visible", "equals": true },
+            {
+              "path": "cursor.xNormalized",
+              "approx": 0.37,
+              "tolerance": 0.015
+            },
+            {
+              "path": "cursor.yNormalized",
+              "approx": 0.64,
+              "tolerance": 0.015
+            },
+            {
+              "path": "cursor.xValue",
+              "approx": 101.8,
+              "tolerance": 1.5
+            },
+            {
+              "path": "cursor.yValue",
+              "approx": 20.8,
+              "tolerance": 1.5
+            },
+            { "path": "cursor.pinned", "equals": false },
+            { "path": "cursor.snapped", "equals": false },
+            { "path": "cursor.datum", "equals": null },
+            { "path": "render.count", "equals": 1 }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-free-cursor-status]"
+              },
+              "property": "text",
+              "includes": "HP 101.8"
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-free-cursor-status]"
+              },
+              "property": "text",
+              "includes": "MPG 20.8"
+            }
+          ]
+        },
+        { "type": "screenshot", "name": "free-cursor-values" },
+        { "type": "pointerLeave", "view": "main" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "cursor.visible", "equals": false },
+            { "path": "cursor.xNormalized", "equals": null },
+            { "path": "cursor.yNormalized", "equals": null }
+          ]
+        },
+        {
+          "type": "key",
+          "key": "ArrowRight",
+          "target": { "view": "main", "anchor": "control:x" }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "cursor.visible", "equals": true },
+            { "path": "cursor.xValue", "equals": 101.9 },
+            { "path": "cursor.yValue", "equals": 20.8 },
+            { "path": "cursor.pinned", "equals": true }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-free-cursor-status]"
+              },
+              "property": "text",
+              "includes": "HP 101.9"
+            },
+            {
+              "target": { "role": "slider", "name": "Horsepower" },
+              "property": "focused",
+              "equals": true
+            }
+          ]
+        },
+        { "type": "pointerLeave", "view": "main" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "cursor.visible", "equals": true },
+            { "path": "cursor.pinned", "equals": true }
+          ]
+        },
+        { "type": "key", "key": "Escape" },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "cursor.visible", "equals": false },
+            { "path": "cursor.pinned", "equals": false }
+          ]
+        },
+        {
+          "type": "touchTap",
+          "target": {
+            "view": "main",
+            "anchor": "fraction:0.25,0.25"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "cursor.visible", "equals": true },
+            {
+              "path": "cursor.xValue",
+              "approx": 85,
+              "tolerance": 0.5
+            },
+            {
+              "path": "cursor.yValue",
+              "approx": 32.5,
+              "tolerance": 0.5
+            },
+            { "path": "cursor.pinned", "equals": true }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Apache ECharts cross axis pointer",
+    "url": "https://echarts.apache.org/handbook/en/concepts/axis/"
+  },
+  "ai": {
+    "create": "Create a free crosshair over selected car horsepower and fuel-economy observations that reports arbitrary plot coordinates without selecting a datum.",
+    "maintain": "Keep transient cursor movement DOM-only, constrain it to resolved chart bounds, hide it on leave, and express cursor geometry and scale inversion through the continuous cursor behavior."
+  }
+}

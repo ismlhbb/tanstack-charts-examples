@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "referenceRenderer": "echarts",
+  "order": 850,
+  "id": "85-scrollable-resource-lanes",
+  "title": "Scrollable resource timeline lanes",
+  "family": "interaction",
+  "intent": "Navigate a wide resource schedule with native horizontal scrolling while preserving lane order and task geometry.",
+  "support": "composed",
+  "features": [
+    "resource timeline",
+    "native horizontal overflow",
+    "interval rectangles",
+    "browser-owned horizontal wheel scrolling",
+    "scroll position preservation",
+    "fixed resource lane rail",
+    "fixed status legend",
+    "persistent focused task summary"
+  ],
+  "geometry": [{ "view": "main", "role": "rect", "count": 5 }],
+  "minimumGeometrySimilarity": 0.994,
+  "interactionScenarios": [
+    {
+      "id": "wheel-through-resource-schedule",
+      "steps": [
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "viewport.scrollLeft", "approx": 0, "tolerance": 1 },
+            { "path": "lanes.count", "equals": 5 },
+            { "path": "tasks.count", "equals": 10 },
+            { "path": "domain.start", "equals": "2025-01-01" },
+            { "path": "domain.end", "equals": "2025-03-15" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": { "selector": "[data-conformance-lane]" },
+              "property": "count",
+              "equals": 5
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-lane=\"Infrastructure\"]"
+              },
+              "property": "visible",
+              "equals": true
+            },
+            {
+              "target": { "selector": "[data-conformance-lane-rail]" },
+              "property": "width",
+              "atLeast": 96
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-timeline-status]"
+              },
+              "property": "count",
+              "equals": 3
+            },
+            {
+              "target": { "selector": "[data-conformance-overflow-cue]" },
+              "property": "visible",
+              "equals": true
+            },
+            {
+              "target": { "role": "list", "name": "Task schedule details" },
+              "property": "text",
+              "includes": "Endpoint build"
+            }
+          ]
+        },
+        {
+          "type": "wheel",
+          "target": { "view": "main", "anchor": "viewport" },
+          "deltaX": 260
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            {
+              "path": "viewport.scrollLeft",
+              "approx": 260,
+              "tolerance": 12
+            },
+            { "path": "lanes.count", "equals": 5 },
+            { "path": "tasks.count", "equals": 10 },
+            { "path": "domain.start", "equals": "2025-01-01" },
+            { "path": "domain.end", "equals": "2025-03-15" }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-lane=\"Infrastructure\"]"
+              },
+              "property": "visible",
+              "equals": true
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-lane=\"Infrastructure\"]"
+              },
+              "property": "contained",
+              "within": { "selector": "[data-conformance-lane-rail]" },
+              "equals": true
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-timeline-legend]"
+              },
+              "property": "visible",
+              "equals": true
+            }
+          ]
+        },
+        { "type": "screenshot", "name": "scrolled-resource-schedule" },
+        { "type": "update", "revision": 1 },
+        {
+          "type": "assert",
+          "assertions": [
+            {
+              "path": "viewport.scrollLeft",
+              "approx": 260,
+              "tolerance": 12
+            },
+            { "path": "tasks.count", "equals": 10 },
+            { "path": "tasks.apiBuildEnd", "equals": "2025-02-16" },
+            {
+              "path": "tasks.qualityReleaseStart",
+              "equals": "2025-02-13"
+            }
+          ]
+        },
+        { "type": "update", "revision": 0 },
+        {
+          "type": "assert",
+          "assertions": [
+            {
+              "path": "viewport.scrollLeft",
+              "approx": 260,
+              "tolerance": 12
+            },
+            { "path": "tasks.count", "equals": 10 },
+            { "path": "tasks.apiBuildEnd", "equals": "2025-02-13" },
+            {
+              "path": "tasks.qualityReleaseStart",
+              "equals": "2025-02-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard-focus-scrolls-offscreen-task-into-view",
+      "steps": [
+        {
+          "type": "key",
+          "key": "End",
+          "target": {
+            "view": "main",
+            "anchor": "task:docs-publish"
+          }
+        },
+        {
+          "type": "assert",
+          "assertions": [
+            { "path": "focus.taskId", "equals": "docs-publish" },
+            { "path": "focus.visible", "equals": true },
+            { "path": "focus.scrolled", "equals": true }
+          ]
+        },
+        {
+          "type": "assertRendered",
+          "assertions": [
+            {
+              "target": {
+                "selector": "[data-conformance-timeline-details]"
+              },
+              "property": "text",
+              "includes": "Publish guides"
+            },
+            {
+              "target": {
+                "selector": "[data-conformance-scroll-viewport]"
+              },
+              "property": "scrollLeft",
+              "atLeast": 1
+            }
+          ]
+        },
+        {
+          "type": "screenshot",
+          "name": "keyboard-task-details"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "title": "Apache ECharts custom series",
+    "url": "https://echarts.apache.org/handbook/en/how-to/chart-types/custom-series/"
+  },
+  "ai": {
+    "create": "Create a resource timeline whose semantic date domain is wider than its container, using native horizontal overflow and interval rectangles grouped into named lanes.",
+    "maintain": "Keep browser scrolling in the application layer, use the resolved y scale to align the fixed lane rail, retain stable task IDs and explicit UTC and band scales, and preserve scroll position across updates."
+  }
+}
